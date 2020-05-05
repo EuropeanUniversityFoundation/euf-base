@@ -1,39 +1,60 @@
-# Composer template for Drupal projects
+# EUF base profile for Drupal projects
 
-[![Build Status](https://travis-ci.org/drupal-composer/drupal-project.svg?branch=8.x)](https://travis-ci.org/drupal-composer/drupal-project)
-
-This project template provides a starter kit for managing your site
-dependencies with [Composer](https://getcomposer.org/).
-
-If you want to know how to use it as replacement for
-[Drush Make](https://github.com/drush-ops/drush/blob/8.x/docs/make.md) visit
-the [Documentation on drupal.org](https://www.drupal.org/node/2471553).
+This is a base profile for Drupal 8 projects to be used within the EUF. This template is built upon the [drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project) and [docker4drupal](https://github.com/wodby/docker4drupal) - refer to the respective documentations whenever necessary.
 
 ## Usage
 
-First you need to [install composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
+In order to test this profile, follow these steps:
 
-> Note: The instructions below refer to the [global composer installation](https://getcomposer.org/doc/00-intro.md#globally).
-You might need to replace `composer` with `php composer.phar` (or similar)
-for your setup.
+    git clone git@github.com:EuropeanUniversityFoundation/euf-base.git
+    cd euf-base
+    cp .env.example .env
+    nano .env
 
-After that you can create the project:
+Change the necessary environment variables, according to the comments in the file.
 
-```
-composer create-project drupal-composer/drupal-project:8.x-dev some-dir --no-interaction
-```
+### Using docker4drupal
 
-With `composer require ...` you can download new dependencies to your
-installation.
+For macos users there is an added step:
 
-```
-cd some-dir
-composer require drupal/devel:~1.0
-```
+    cp macos.docker-compose.override.yml docker-compose.override.yml
 
-The `composer create-project` command passes ownership of all files to the
-project that is created. You should create a new git repository, and commit
-all files not excluded by the .gitignore file.
+To launch the containers and download the necessary dependencies:
+
+    make up
+    make composer install
+
+When installing for the first time, there is a bundled quick install:
+
+    make site
+
+### Using a regular LAMP stack
+
+To download the necessary dependencies:
+
+    composer install
+
+When installing for the first time, there is a bundled quick install:
+
+    chmod u+x env-install.sh
+    ./env-install.sh
+
+### Post-installation
+
+After a first time install, change the **setting.php** file to use **settings.local.php** instead:
+
+    chmod u+w web/sites/default/settings.php
+    nano web/sites/default/settings.php
+
+Comment out the database settings block and add the following lines to the end of the file:
+
+    if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+      include $app_root . '/' . $site_path . '/settings.local.php';
+    }
+
+Finally, clear the cache:
+
+    vendor/bin/drush cr
 
 ## What does the template do?
 
