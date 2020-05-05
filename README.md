@@ -15,9 +15,11 @@ Change the necessary environment variables, according to the comments in the fil
 
 ### Using docker4drupal
 
-For macos users there is an added step:
+For macos users some extra steps are required:
 
     cp macos.docker-compose.override.yml docker-compose.override.yml
+    docker-sync start
+    nano .env <!--- # change the PHP container definitions --->
 
 To launch the containers and download the necessary dependencies:
 
