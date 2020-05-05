@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  php:
+    volumes:
+## For macOS users (https://wodby.com/docs/stacks/drupal/local#docker-for-mac)
+      - ./:/var/www/html:cached # User-guided caching
+      - docker-sync:/var/www/html # Docker-sync
+
+  nginx:
+    volumes:
+# For macOS users (https://wodby.com/docs/stacks/drupal/local#docker-for-mac)
+      - ./:/var/www/html:cached # User-guided caching
+      - docker-sync:/var/www/html # Docker-sync
+
+#  apache:
+#    volumes:
+## For macOS users (https://wodby.com/docs/stacks/drupal/local#docker-for-mac)
+##      - ./:/var/www/html:cached # User-guided caching
+##      - docker-sync:/var/www/html # Docker-sync
+
+volumes:
+## Docker-sync for macOS users
+  docker-sync:
+    external: true
