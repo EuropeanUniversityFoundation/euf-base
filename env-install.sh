@@ -52,5 +52,13 @@ while true; do
         * ) echo "Please answer yes or no.";;
     esac
 done
+
+# Perform the site install
 $DRUSH site-install $PROFILE install_configure_form.enable_update_status_emails=NULL --db-url="$DB_DRIVER"://"$DB_USER":"$DB_PASSWORD"@"$DB_HOST":"$DB_PORT"/"$DB_NAME" --account-name="$ACCOUNT_NAME" --account-mail="$ACCOUNT_MAIL" --site-mail="$SITE_MAIL" --account-pass="$ACCOUNT_PASS" --site-name="$SITE_NAME"
+
+# Correct permissions to avoid future issues
+echo -e "\nCorrecting permissions..."
+chmod u+w $PWD/web/sites/default
+
+echo -e "\nDONE."
 exit 0

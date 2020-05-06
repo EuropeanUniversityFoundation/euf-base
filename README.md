@@ -13,24 +13,19 @@ In order to test this profile, follow these steps:
 
 Change the necessary environment variables, according to the comments in the file.
 
-### Using docker4drupal
+### Launching docker4drupal
 
 For macos users some extra steps are required:
 
   - `cp macos.docker-compose.override.yml docker-compose.override.yml`
-  - run `docker-sync start` in a separate shell
+  - run `docker-sync start --foreground` in a separate shell
   - change the PHP container definitions in `.env`
 
-To launch the containers and download the necessary dependencies:
+To launch the containers, simply run `make up`.
 
-    make up
-    make composer install
+Then start a shell inside the main container with `make shell`.
 
-When installing for the first time, there is a bundled quick install:
-
-    make site
-
-### Using a regular LAMP stack
+### Inside the container OR on a normal LAMP stack
 
 To download the necessary dependencies:
 
@@ -40,8 +35,6 @@ When installing for the first time, there is a bundled quick install:
 
     chmod u+x env-install.sh
     ./env-install.sh
-
-### Post-installation
 
 After a first time install, change the `settings.php` file to use `settings.local.php` instead:
 
