@@ -58,7 +58,9 @@ $DRUSH site-install $PROFILE install_configure_form.enable_update_status_emails=
 
 # Correct permissions to avoid future issues
 echo -e "\nCorrecting permissions..."
-chmod u+w $PWD/web/sites/default
+chmod 0755 $PWD/web/sites/default
+chmod 0644 $PWD/web/sites/default/settings.php
+chmod 0644 $PWD/web/sites/default/settings.local.php
 
 echo -e "\nDONE."
 exit 0
