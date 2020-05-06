@@ -17,9 +17,9 @@ Change the necessary environment variables, according to the comments in the fil
 
 For macos users some extra steps are required:
 
-    cp macos.docker-compose.override.yml docker-compose.override.yml
-    docker-sync start
-    nano .env <!--- # change the PHP container definitions --->
+  - `cp macos.docker-compose.override.yml docker-compose.override.yml`
+  - run `docker-sync start` on a separate shell
+  - change the PHP container definitions in `.env`
 
 To launch the containers and download the necessary dependencies:
 
