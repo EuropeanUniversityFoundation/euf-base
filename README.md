@@ -18,7 +18,7 @@ Change the necessary environment variables, according to the comments in the fil
 For macos users some extra steps are required:
 
   - `cp macos.docker-compose.override.yml docker-compose.override.yml`
-  - run `docker-sync start` on a separate shell
+  - run `docker-sync start` in a separate shell
   - change the PHP container definitions in `.env`
 
 To launch the containers and download the necessary dependencies:
@@ -43,7 +43,7 @@ When installing for the first time, there is a bundled quick install:
 
 ### Post-installation
 
-After a first time install, change the **setting.php** file to use **settings.local.php** instead:
+After a first time install, change the `settings.php` file to use `settings.local.php` instead:
 
     chmod u+w web/sites/default/settings.php
     nano web/sites/default/settings.php
