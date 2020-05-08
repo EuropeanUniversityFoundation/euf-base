@@ -4,9 +4,9 @@ dependencies:
   module:
     - search
   theme:
-    - bartik
-id: bartik_search
-theme: bartik
+    - bootstrap_barrio
+id: bootstrap_barrio_search
+theme: bootstrap_barrio
 region: sidebar_first
 weight: -1
 provider: null

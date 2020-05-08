@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - bartik
-id: bartik_breadcrumbs
-theme: bartik
+    - bootstrap_barrio_subtheme
+id: bootstrap_barrio_subtheme_breadcrumbs
+theme: bootstrap_barrio_subtheme
 region: breadcrumb
 weight: 0
 provider: null

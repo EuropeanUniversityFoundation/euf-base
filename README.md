@@ -59,6 +59,8 @@ Some common issues and quick solutions...
 
 Composer require or update may fail because the scaffold plugin cannot replace files in `web/sites/default`; fix with `chmod u+w web/sites/default`.
 
+---
+
 ## What does the template do?
 
 When installing the given `composer.json` some tasks are taken care of:

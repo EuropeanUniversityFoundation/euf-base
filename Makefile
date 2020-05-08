@@ -73,13 +73,6 @@ composer:
 drush:
 	docker exec $(shell docker ps --filter name='^/$(PROJECT_NAME)_php' --format "{{ .ID }}") drush -r $(DRUPAL_ROOT) $(filter-out $@,$(MAKECMDGOALS))
 
-## site	:	Executes `drush site-install` command in a specified `DRUPAL_ROOT` directory (default is `/var/www/html/web`).
-##		arguments are determined by .env file
-.PHONY: site
-site:
-	docker exec $(shell docker ps --filter name='^/$(PROJECT_NAME)_php' --format "{{ .ID }}") drush -r $(DRUPAL_ROOT) site-install $(PROFILE) install_configure_form.enable_update_status_emails=NULL --db-url=$(DB_DRIVER)://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME) --account-name=$(ACCOUNT_NAME) --account-mail=$(ACCOUNT_MAIL) --site-mail=$(SITE_MAIL) --account-pass=$(ACCOUNT_PASS) --site-name=$(SITE_NAME)
-	@echo "Find the site at http://$(PROJECT_BASE_URL):8000"
-
 ## logs	:	View containers logs.
 ##		You can optinally pass an argument with the service name to limit logs
 ##		logs php	: View `php` container logs.

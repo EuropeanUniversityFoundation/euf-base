@@ -26,6 +26,7 @@
         "drupal/admin_toolbar": "^2.2",
         "drupal/adminimal_admin_toolbar": "^1.11",
         "drupal/adminimal_theme": "^1.5",
+        "drupal/bootstrap_barrio": "^4.27",
         "drupal/console": "^1.0.2",
         "drupal/core-composer-scaffold": "~8.8.5",
         "drupal/core-recommended": "~8.8.5",

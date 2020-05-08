@@ -59,8 +59,11 @@ $DRUSH site-install $PROFILE install_configure_form.enable_update_status_emails=
 # Correct permissions to avoid future issues
 echo -e "\nCorrecting permissions..."
 chmod 0755 $PWD/web/sites/default
+echo -e "Added write permission to web/sites/default"
 chmod 0644 $PWD/web/sites/default/settings.php
+echo -e "Added write permission to web/sites/default/settings.php"
 chmod 0644 $PWD/web/sites/default/settings.local.php
+echo -e "Added write permission to web/sites/default/settings.local.php"
 
-echo -e "\nDONE."
+echo -e "\nFind the site at http://$PROJECT_BASE_URL:8000"
 exit 0

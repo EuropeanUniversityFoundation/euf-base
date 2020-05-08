@@ -6,9 +6,9 @@ dependencies:
   module:
     - system
   theme:
-    - bartik
-id: bartik_footer
-theme: bartik
+    - bootstrap_barrio_subtheme
+id: bootstrap_barrio_subtheme_footer
+theme: bootstrap_barrio_subtheme
 region: footer_fifth
 weight: 0
 provider: null

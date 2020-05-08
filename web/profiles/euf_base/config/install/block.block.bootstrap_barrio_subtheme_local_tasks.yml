@@ -2,9 +2,9 @@ langcode: en
 status: true
 dependencies:
   theme:
-    - bartik
-id: bartik_local_tasks
-theme: bartik
+    - bootstrap_barrio_subtheme
+id: bootstrap_barrio_subtheme_local_tasks
+theme: bootstrap_barrio_subtheme
 region: content
 weight: -40
 provider: null

@@ -6,9 +6,9 @@ dependencies:
   module:
     - system
   theme:
-    - bartik
-id: bartik_account_menu
-theme: bartik
+    - bootstrap_barrio
+id: bootstrap_barrio_account_menu
+theme: bootstrap_barrio
 region: secondary_menu
 weight: 0
 provider: null
