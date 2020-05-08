@@ -59,5 +59,6 @@ install:
 
 # Themes to install
 themes:
-  - 'bartik'
+  - 'bootstrap_barrio'
+  - 'bootstrap_barrio_subtheme'
   - 'adminimal_theme'
