@@ -9,8 +9,8 @@ dependencies:
     - bootstrap_barrio_subtheme
 id: bootstrap_barrio_subtheme_account_menu
 theme: bootstrap_barrio_subtheme
-region: secondary_menu
-weight: 0
+region: footer_first
+weight: -6
 provider: null
 plugin: 'system_menu_block:account'
 settings:
