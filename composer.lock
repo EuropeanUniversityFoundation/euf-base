@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b347d8ddc8a784272fb9417b4a9eb603",
+    "content-hash": "a12621ac039a71c397fd281f660c1978",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3353,6 +3353,35 @@
                 "validator"
             ],
             "time": "2020-02-13T22:36:52+00:00"
+        },
+        {
+            "name": "euf/euf_bootstrap_sass",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/EuropeanUniversityFoundation/euf_bootstrap_sass.git",
+                "reference": "db2edeb88d22fa59382f25db12c2aaa3062bd65f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/EuropeanUniversityFoundation/euf_bootstrap_sass/zipball/db2edeb88d22fa59382f25db12c2aaa3062bd65f",
+                "reference": "db2edeb88d22fa59382f25db12c2aaa3062bd65f",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/bootstrap_barrio": "^4.8.0"
+            },
+            "type": "drupal-theme",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "SASS subtheme for Barrio Theme.",
+            "homepage": "https://github.com/EuropeanUniversityFoundation/euf_bootstrap_sass",
+            "support": {
+                "source": "https://github.com/EuropeanUniversityFoundation/euf_bootstrap_sass/tree/v1.0",
+                "issues": "https://github.com/EuropeanUniversityFoundation/euf_bootstrap_sass/issues"
+            },
+            "time": "2020-05-26T14:58:13+00:00"
         },
         {
             "name": "grasmash/expander",
