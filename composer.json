@@ -28,8 +28,8 @@
         "drupal/adminimal_theme": "^1.5",
         "drupal/bootstrap_barrio": "^4.27",
         "drupal/console": "^1.0.2",
-        "drupal/core-composer-scaffold": "~8.8.5",
-        "drupal/core-recommended": "~8.8.5",
+        "drupal/core-composer-scaffold": "~8.9.0",
+        "drupal/core-recommended": "~8.9.0",
         "drupal/ctools": "^3.4",
         "drupal/link_attributes": "^1.10",
         "drupal/module_filter": "^3.1",
@@ -44,7 +44,7 @@
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
-        "drupal/core-dev": "~8.8.5",
+        "drupal/core-dev": "~8.9.0",
         "roave/security-advisories": "dev-master"
     },
     "conflict": {
