@@ -1,25 +1,5 @@
-version: "3"
+version: "3.7"
 
-services:
-  php:
-    volumes:
-## For macOS users (https://wodby.com/docs/stacks/drupal/local#docker-for-mac)
-      - ./:/var/www/html:cached # User-guided caching
-      - docker-sync:/var/www/html # Docker-sync
-
-  nginx:
-    volumes:
-# For macOS users (https://wodby.com/docs/stacks/drupal/local#docker-for-mac)
-      - ./:/var/www/html:cached # User-guided caching
-      - docker-sync:/var/www/html # Docker-sync
-
-#  apache:
-#    volumes:
-## For macOS users (https://wodby.com/docs/stacks/drupal/local#docker-for-mac)
-##      - ./:/var/www/html:cached # User-guided caching
-##      - docker-sync:/var/www/html # Docker-sync
-
-volumes:
-## Docker-sync for macOS users
-  docker-sync:
-    external: true
+# Copy this file and name it docker-compose.override.yml
+# Copy specific macOS instructions from docker-compose.yml onto this file
+# The new file will be ignored by git so the overrides will be local only

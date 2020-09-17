@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 
 services:
   mariadb:
@@ -46,9 +46,9 @@ services:
 #      MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", {"browserName":"chrome","goog:chromeOptions":{"args":["--disable-gpu","--headless"]}}, "http://chrome:9515"]'
     volumes:
     - ./:/var/www/html:cached
-#    # Alternative for macOS users: docker-sync https://wodby.com/docs/stacks/drupal/local#docker-for-mac
-#    - docker-sync:/var/www/html
-#    # For XHProf and Xdebug profiler traces
+## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
+#    - mutagen:/var/www/html
+## For XHProf and Xdebug profiler traces
 #    - files:/mnt/files
 
   crond:
@@ -74,6 +74,9 @@ services:
     #      NGINX_DRUPAL_FILE_PROXY_URL: http://example.com
     volumes:
     - ./:/var/www/html:cached
+## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
+#    - mutagen:/var/www/html
+
     labels:
     - "traefik.http.routers.${PROJECT_NAME}_nginx.rule=Host(`${PROJECT_BASE_URL}`)"
 
@@ -108,6 +111,9 @@ services:
 #      APACHE_DOCUMENT_ROOT: /var/www/html/web
 #    volumes:
 #    - ./:/var/www/html:cached
+## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
+#    - mutagen:/var/www/html
+
 #    labels:
 #    - "traefik.http.routers.${PROJECT_NAME}_apache.rule=Host(`${PROJECT_BASE_URL}`)"
 
@@ -281,8 +287,19 @@ services:
     - '8000:80'
 #    - '8080:8080' # Dashboard
     volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock
+
+#  mutagen:
+#    build:
+#      context: .
+#      dockerfile: mutagen/Dockerfile
+#    init: true
+#    container_name: "mutagen"
+#    volumes:
+#    - mutagen:/var/www/html
 
 #volumes:
+## For macOS users (Mutagen)
+#  mutagen:
 ## For Xdebug profiler
 #  files:
