@@ -21,7 +21,7 @@ up:
 	@echo "Starting up containers for $(PROJECT_NAME)..."
 	docker-compose pull
 	docker-compose up -d --remove-orphans
-	@echo "Find the site at http://$(PROJECT_BASE_URL):8000"
+	@echo "Find the site at http://$(PROJECT_BASE_URL):${HTTP_PORT}"
 
 .PHONY: mutagen
 mutagen:
@@ -37,7 +37,7 @@ down: stop
 start:
 	@echo "Starting containers for $(PROJECT_NAME) from where you left off..."
 	@docker-compose start
-	@echo "Find the site at http://$(PROJECT_BASE_URL):8000"
+	@echo "Find the site at http://$(PROJECT_BASE_URL):${HTTP_PORT}"
 
 ## stop	:	Stop containers.
 .PHONY: stop
