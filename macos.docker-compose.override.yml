@@ -1,5 +1,0 @@
-version: "3.7"
-
-# Copy this file and name it docker-compose.override.yml
-# Copy specific macOS instructions from docker-compose.yml onto this file
-# The new file will be ignored by git so the overrides will be local only
