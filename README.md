@@ -15,15 +15,17 @@ Change the necessary environment variables, according to the comments in the fil
 
 ### Launching docker4drupal
 
-For macos users some extra steps are required:
-
-  - `cp macos.docker-compose.override.yml docker-compose.override.yml`
-  - run `docker-sync start --foreground` in a separate shell
-  - change the PHP container definitions in `.env`
-
 To launch the containers, simply run `make up`.
 
 Then start a shell inside the main container with `make shell`.
+
+#### HTTP_PORT
+
+By default the Traefik container will bind to port 8000; in order to use multiple setups at the same time, change the port number on your local environment to another number.  **Warning:** port 8025 is used by Mailhog.
+
+#### COMPOSER_AUTH
+
+Some dependencies are pulled directly from Github repositories. During development, every `composer` operation will hit the Github API, which can lead to too many anonymous calls and getting locked out. To avoid this, generate a Personal Access Token and include it in the `.env` file; the token will then be loaded by the Composer configuration inside the PHP container.
 
 ### Inside the container OR on a normal LAMP stack
 
