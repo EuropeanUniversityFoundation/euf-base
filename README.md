@@ -2,43 +2,149 @@
 
 This is a base profile for Drupal 8 projects to be used within the EUF. This template is built upon the [drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project) and [docker4drupal](https://github.com/wodby/docker4drupal) - refer to the respective documentations whenever necessary.
 
-## Usage
+## Quick start with Docker
 
-In order to test this profile, follow these steps:
+In order to test this profile with Docker, you need `docker`, `docker-compose` and `make` installed on your system. If your system meets the requirements, follow these steps:
 
     git clone git@github.com:EuropeanUniversityFoundation/euf-base.git
     cd euf-base
-    cp .env.example .env
-    nano .env
+    cp .env.example .env      # The .env file is ignored by version control
+    nano .env                 # Edit the environment variables if necessary
+    make up                   # Create and start the Docker containers
+    make shell                # Access a shell in the PHP container
+    composer install          # Install the necessary packages
+    bash env-install.sh       # Quick command line installation
 
-Change the necessary environment variables, according to the comments in the file.
+## User guide
 
-### Launching docker4drupal
+1. [docker4drupal](#docker4drupal)
+  1. [Basic setup](#basic-setup)
+  2. [ENV variables for Docker](#env-variables-for-docker)
+2. [LAMP stack](#lamp-stack)
+  1. [Apache Virtualhost](#apache-virtualhost)
+  2. [ENV variables for LAMP](#env-variables-for-lamp)
+3. [Installing Drupal](#installing-drupal)
+  1. [Fresh install](#fresh-install)
+  2. [From existing configuration](#from-existing-configuration)
+4. [Troubleshooting](#troubleshooting)
 
-To launch the containers, simply run `make up`.
 
-Then start a shell inside the main container with `make shell`.
+## docker4drupal
+
+This project includes [docker4drupal](https://github.com/wodby/docker4drupal) with some particular changes to provide an easy and consistent way to launch projects across different development environments. This approach is not without its downsides but it works consistently and is recommended for development.
+
+**docker4drupal** is built around a set of variables that are specific to each development environment, so this project includes a `.env.example` file that should be copied to `.env` and adapted according to specific needs. The `.env` file is ignored in version control to guarantee that the project is not "polluted" with environment specific code.
+
+    cp .env.example .env      # The .env file is ignored by version control
+    nano .env                 # Edit the environment variables if necessary
+
+These environment variables are injected into the `docker-compose.yml` file to define all the Docker containers and their particular configuration. This is accomplished with the `Makefile` present at the root of the project, containing the necessary aliases to create / start, interact with, stop and delete Docker containers.
+
+    make up                   # Create and start the Docker containers
+    make start                # Start existing Docker containers
+    make stop                 # Stop all running Docker containers
+    make down                 # Same as make stop
+    make prune                # Delete the Docker containers
+    make shell                # Access a shell in the PHP container (default)
+
+[Back to the User Guide](#user-guide)
+
+### Basic setup
+
+Out of the box, this modified version of **docker4drupal** includes the following containers:
+
+    *Traefik* as a reverse proxy / load balancer;
+    *NginX* as a web server;
+    *PHP* and *crond* as the runtime environment (with `composer` and `drush`)
+    *MariaDB* as the database engine;
+    *Mailhog* to handle emails.
+
+The **docker4drupal** stack can include many more components, but it is recommended that any additional components be include via a `docker-composer.override.yml` file, which will be ignored by version control, to keep the base project simple and fast. Some examples are included:
+
+#### github.docker-compose.override.yml
+
+Use this to modify the *PHP* container and add a Github authentication token to Composer. Some dependencies are pulled directly from Github repositories. During development, every `composer` operation will hit the Github API, which can lead to too many anonymous calls and getting locked out. To avoid this, generate a Personal Access Token and include it in the `.env` file; the token will then be loaded by the Composer configuration inside the PHP container.
+
+#### node.docker-compose.override.yml
+
+Use this to add a container with *NodeJS* for custom theme development.
+
+#### pma.docker-compose.override.yml
+
+Use this to add a container with *phpMyAdmin* for easier access to the database.
+
+[Back to the User Guide](#user-guide)
+
+### ENV variables for Docker
+
+Inside the `.env` file there are many variables that impact the Docker setup, and most are set to sensible defaults. Others require some attention:
+
+    `PROJECT_NAME` is used to prefix the container names;
+    `PROJECT_BASE_URL` is used to define the URLs for all containers;
+    `HTTP_PORT` can be leveraged to start multiple Docker setups (see below);
+    `DB_` variables are used for the database container and whatever connects to it;
+    `COMPOSER_AUTH` can be used with the Github override described above.
 
 #### HTTP_PORT
 
 By default the Traefik container will bind to port 8000; in order to use multiple setups at the same time, change the port number on your local environment to another number.  **Warning:** port 8025 is used by Mailhog.
 
-#### COMPOSER_AUTH
+[Back to the User Guide](#user-guide)
 
-Some dependencies are pulled directly from Github repositories. During development, every `composer` operation will hit the Github API, which can lead to too many anonymous calls and getting locked out. To avoid this, generate a Personal Access Token and include it in the `.env` file; the token will then be loaded by the Composer configuration inside the PHP container.
+## LAMP stack
 
-### Inside the container OR on a normal LAMP stack
+When using a regular **LAMP** stack (*Linux* + *Apache* + *MySQL* + *PHP*), be sure to have **Composer** on your system to be able to install dependencies. Optionally, install **Drush launcher** to facilitate using the local **Drush** which comes installed with this project, otherwise any `drush <command>` must be executed as `vendor/bin/drush <command>` (assuming it is run from the project root).
 
-To download the necessary dependencies:
+[Back to the User Guide](#user-guide)
 
-    composer install
+### Apache Virtualhost
 
-When installing for the first time, there is a bundled quick install:
+For the **Apache** web server, there are some additional rules that must be included in the *Virtualhost* definition:
 
-    chmod u+x env-install.sh
-    ./env-install.sh
+    <VirtualHost *:80>
+        ServerName DOMAIN
+        DocumentRoot "/var/www/vhosts/DOMAIN/PROJECTROOT/web"
+        <Directory "/var/www/vhosts/DOMAIN/PROJECTROOT/web">
+            Options Includes FollowSymLinks
+            AllowOverride All
+            Order allow,deny
+            Allow from all
+        </Directory>
+    </VirtualHost>
 
-After a first time install, change the `settings.php` file to use `settings.local.php` instead:
+[Back to the User Guide](#user-guide)
+
+### ENV variables for LAMP
+
+Some variables inside the `.env` file will have no impact, while others do, since this setup is different from the Docker setup:
+
+    `PROJECT_NAME` is *not* currently used in a LAMP setup;
+    `PROJECT_BASE_URL` may be used in Drupal settings, so it **should be reviewed**;
+    `HTTP_PORT` is *not* currently used in a LAMP setup;
+    `DB_` variables are used for the stack database so they **should be reviewed**;
+    `COMPOSER_AUTH` is *not* currently used in a LAMP setup;
+
+Adding a Github authentication token to **Composer** should be done manually, and it only needs to be done once per system.
+
+[Back to the User Guide](#user-guide)
+
+## Installing Drupal
+
+Installing Drupal for the first time can be done via the web GUI using your browser, or it can be done via the command line with the help of **Drush** or **Drupal Console**. This project includes shell scripts to leverage the variables set in the `.env` file and perform the installation quickly via the command line. Installing via the web GUI is also possible, although it requires more attention to details, especially in a Docker setup.
+
+### Fresh install
+
+To perform a first time installation, make sure you get the latest version of the required packages by running these commands:
+
+    rm composer.lock          # contains exact versions, might be outdated
+    composer install          # installs packages as defined in composer.json
+
+Use the bundled shell script to perform a quick install from the `.env` variables:
+
+    chmod u+x env-install.sh  # ensure the script is executable
+    bash env-install.sh       # run the script using bash (safest)
+
+After a first time installation, change the `settings.php` file to use `settings.local.php` instead:
 
     chmod u+w web/sites/default/settings.php
     nano web/sites/default/settings.php
@@ -49,9 +155,23 @@ Comment out the database settings block and add the following lines to the end o
       include $app_root . '/' . $site_path . '/settings.local.php';
     }
 
-Finally, clear the cache:
+This allows `settings.local.php` to use the variables defined in the `.env` file. Finally, clear the cache:
 
-    vendor/bin/drush cr
+    vendor/bin/drush cr       # or use `drush cr` if your setup allows
+
+[Back to the User Guide](#user-guide)
+
+### From existing configuration
+
+If you want to reinstall your project using the exported configuration in the `config/sync` directory, install the exact packages versions and configuration by running these commands:
+
+    composer install
+    chmod u+x config-install.sh
+    bash config-install.sh
+
+If necessary, perform the same changes to `settings.php` as described above and clear the cache.
+
+[Back to the User Guide](#user-guide)
 
 ## Troubleshooting
 
@@ -60,6 +180,8 @@ Some common issues and quick solutions...
 ### Scaffolding permissions issue
 
 Composer require or update may fail because the scaffold plugin cannot replace files in `web/sites/default`; fix with `chmod u+w web/sites/default`.
+
+[Back to the User Guide](#user-guide)
 
 ---
 

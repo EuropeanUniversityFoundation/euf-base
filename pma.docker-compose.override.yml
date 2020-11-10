@@ -1,9 +1,9 @@
 version: "3.7"
 
+services:
 # Enable the phpMyAdmin container for easier DB access
 # Copy this file and name it docker-compose.override.yml
 # The new file will be ignored by git so the overrides will be local only
-
   pma:
     image: phpmyadmin/phpmyadmin
     container_name: "${PROJECT_NAME}_pma"
