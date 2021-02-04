@@ -170,3 +170,6 @@ $databases['default']['default'] = [
 $settings['trusted_host_patterns'] = array(
   '^' . preg_quote(getenv('PROJECT_BASE_URL')) . '$',
 );
+
+/* Disable SMTP in local development */
+$config['system.mail']['interface']['default'] = 'php_mail';
