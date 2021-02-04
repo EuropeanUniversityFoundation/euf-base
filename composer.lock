@@ -3992,16 +3992,16 @@
         },
         {
             "name": "euf/euf_bootstrap_sass",
-            "version": "v1.0",
+            "version": "1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EuropeanUniversityFoundation/euf_bootstrap_sass.git",
-                "reference": "db2edeb88d22fa59382f25db12c2aaa3062bd65f"
+                "reference": "18e8a048eec63ceb72e98ebd855e9e257cd91c1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EuropeanUniversityFoundation/euf_bootstrap_sass/zipball/db2edeb88d22fa59382f25db12c2aaa3062bd65f",
-                "reference": "db2edeb88d22fa59382f25db12c2aaa3062bd65f",
+                "url": "https://api.github.com/repos/EuropeanUniversityFoundation/euf_bootstrap_sass/zipball/18e8a048eec63ceb72e98ebd855e9e257cd91c1f",
+                "reference": "18e8a048eec63ceb72e98ebd855e9e257cd91c1f",
                 "shasum": ""
             },
             "require": {
@@ -4014,10 +4014,10 @@
             "description": "SASS subtheme for Barrio Theme.",
             "homepage": "https://github.com/EuropeanUniversityFoundation/euf_bootstrap_sass",
             "support": {
-                "source": "https://github.com/EuropeanUniversityFoundation/euf_bootstrap_sass/tree/v1.0",
+                "source": "https://github.com/EuropeanUniversityFoundation/euf_bootstrap_sass/tree/1.3",
                 "issues": "https://github.com/EuropeanUniversityFoundation/euf_bootstrap_sass/issues"
             },
-            "time": "2020-05-26T14:58:13+00:00"
+            "time": "2021-02-04T17:00:54+00:00"
         },
         {
             "name": "euf/openid_connect_eufidp",
