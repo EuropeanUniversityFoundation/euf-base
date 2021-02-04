@@ -53,11 +53,11 @@ These environment variables are injected into the `docker-compose.yml` file to d
 
 Out of the box, this modified version of **docker4drupal** includes the following containers:
 
-    - *Traefik* as a reverse proxy / load balancer;
-    - *NginX* as a web server;
-    - *PHP* and *crond* as the runtime environment (with `composer` and `drush`)
-    - *MariaDB* as the database engine;
-    - *Mailhog* to handle emails.
+  - *Traefik* as a reverse proxy / load balancer;
+  - *NginX* as a web server;
+  - *PHP* and *crond* as the runtime environment (with `composer` and `drush`)
+  - *MariaDB* as the database engine;
+  - *Mailhog* to handle emails.
 
 The **docker4drupal** stack can include many more components, but it is recommended that any additional components be include via a `docker-composer.override.yml` file, which will be ignored by version control, to keep the base project simple and fast. Some examples are included:
 
@@ -79,11 +79,11 @@ Use this to add a container with *phpMyAdmin* for easier access to the database.
 
 Inside the `.env` file there are many variables that impact the Docker setup, and most are set to sensible defaults. Others require some attention:
 
-    - `PROJECT_NAME` is used to prefix the container names;
-    - `PROJECT_BASE_URL` is used to define the URLs for all containers;
-    - `HTTP_PORT` can be leveraged to start multiple Docker setups (see below);
-    - `DB_` variables are used for the database container and whatever connects to it;
-    - `COMPOSER_AUTH` can be used with the Github override described above.
+  - `PROJECT_NAME` is used to prefix the container names;
+  - `PROJECT_BASE_URL` is used to define the URLs for all containers;
+  - `HTTP_PORT` can be leveraged to start multiple Docker setups (see below);
+  - `DB_` variables are used for the database container and whatever connects to it;
+  - `COMPOSER_AUTH` can be used with the Github override described above.
 
 #### HTTP_PORT
 
@@ -118,11 +118,11 @@ For the **Apache** web server, there are some additional rules that must be incl
 
 Some variables inside the `.env` file will have no impact, while others do, since this setup is different from the Docker setup:
 
-    - `PROJECT_NAME` is *not* currently used in a LAMP setup;
-    - `PROJECT_BASE_URL` may be used in Drupal settings, so it **should be reviewed**;
-    - `HTTP_PORT` is *not* currently used in a LAMP setup;
-    - `DB_` variables are used for the stack database so they **should be reviewed**;
-    - `COMPOSER_AUTH` is *not* currently used in a LAMP setup;
+  - `PROJECT_NAME` is *not* currently used in a LAMP setup;
+  - `PROJECT_BASE_URL` may be used in Drupal settings, so it **should be reviewed**;
+  - `HTTP_PORT` is *not* currently used in a LAMP setup;
+  - `DB_` variables are used for the stack database so they **should be reviewed**;
+  - `COMPOSER_AUTH` is *not* currently used in a LAMP setup;
 
 Adding a Github authentication token to **Composer** should be done manually, and it only needs to be done once per system.
 
