@@ -24,7 +24,9 @@ install:
   - 'dblog'
   - 'dynamic_page_cache'
   - 'editor'
+  - 'eu_funding'
   - 'field'
+  - 'field_group'
   - 'field_ui'
   - 'file'
   - 'filter'
@@ -32,6 +34,7 @@ install:
   - 'image'
   - 'link'
   - 'link_attributes'
+  - 'menu_link_content'
   - 'menu_ui'
   - 'module_filter'
   - 'node'
@@ -53,12 +56,11 @@ install:
   - 'update'
   - 'user'
   - 'views_ui'
-  - 'menu_link_content'
   - 'pathauto'
   - 'views'
 
 # Themes to install
 themes:
   - 'bootstrap_barrio'
-  - 'bootstrap_barrio_subtheme'
+  - 'euf_bootstrap_sass'
   - 'adminimal_theme'

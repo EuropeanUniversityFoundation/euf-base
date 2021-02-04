@@ -6,11 +6,11 @@ dependencies:
   module:
     - system
   theme:
-    - bootstrap_barrio_subtheme
-id: bootstrap_barrio_subtheme_footer
-theme: bootstrap_barrio_subtheme
-region: footer_fifth
-weight: 0
+    - euf_bootstrap_sass
+id: euf_bootstrap_sass_footer
+theme: euf_bootstrap_sass
+region: footer_third
+weight: -5
 provider: null
 plugin: 'system_menu_block:footer'
 settings:

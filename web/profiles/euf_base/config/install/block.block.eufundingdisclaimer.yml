@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - eu_funding
+  theme:
+    - euf_bootstrap_sass
+id: eufundingdisclaimer
+theme: euf_bootstrap_sass
+region: footer_second
+weight: 0
+provider: null
+plugin: eu_funding_disclaimer
+settings:
+  id: eu_funding_disclaimer
+  label: 'EU funding disclaimer'
+  provider: eu_funding
+  label_display: '0'
+visibility: {  }

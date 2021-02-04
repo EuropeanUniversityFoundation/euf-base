@@ -6,9 +6,9 @@ dependencies:
   module:
     - system
   theme:
-    - bootstrap_barrio_subtheme
-id: bootstrap_barrio_subtheme_main_menu
-theme: bootstrap_barrio_subtheme
+    - euf_bootstrap_sass
+id: euf_bootstrap_sass_main_menu
+theme: euf_bootstrap_sass
 region: primary_menu
 weight: 0
 provider: null

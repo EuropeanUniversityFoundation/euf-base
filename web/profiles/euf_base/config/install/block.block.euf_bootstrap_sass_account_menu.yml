@@ -6,11 +6,11 @@ dependencies:
   module:
     - system
   theme:
-    - bootstrap_barrio_subtheme
-id: bootstrap_barrio_subtheme_account_menu
-theme: bootstrap_barrio_subtheme
-region: footer_first
-weight: -6
+    - euf_bootstrap_sass
+id: euf_bootstrap_sass_account_menu
+theme: euf_bootstrap_sass
+region: footer_fifth
+weight: -5
 provider: null
 plugin: 'system_menu_block:account'
 settings:

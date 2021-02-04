@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - bootstrap_barrio_subtheme
-id: bootstrap_barrio_subtheme_breadcrumbs
-theme: bootstrap_barrio_subtheme
+    - euf_bootstrap_sass
+id: euf_bootstrap_sass_breadcrumbs
+theme: euf_bootstrap_sass
 region: breadcrumb
 weight: 0
 provider: null

@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - bootstrap_barrio_subtheme
-id: bootstrap_barrio_subtheme_content
-theme: bootstrap_barrio_subtheme
+    - euf_bootstrap_sass
+id: euf_bootstrap_sass_content
+theme: euf_bootstrap_sass
 region: content
 weight: 0
 provider: null

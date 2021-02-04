@@ -4,11 +4,11 @@ dependencies:
   module:
     - system
   theme:
-    - bootstrap_barrio_subtheme
-id: bootstrap_barrio_subtheme_powered
-theme: bootstrap_barrio_subtheme
-region: footer_fifth
-weight: 10
+    - euf_bootstrap_sass
+id: euf_bootstrap_sass_powered
+theme: euf_bootstrap_sass
+region: footer_third
+weight: -4
 provider: null
 plugin: system_powered_by_block
 settings:

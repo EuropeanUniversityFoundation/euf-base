@@ -2,9 +2,9 @@ langcode: en
 status: true
 dependencies:
   theme:
-    - bootstrap_barrio_subtheme
-id: bootstrap_barrio_subtheme_local_tasks
-theme: bootstrap_barrio_subtheme
+    - euf_bootstrap_sass
+id: euf_bootstrap_sass_local_tasks
+theme: euf_bootstrap_sass
 region: content
 weight: -40
 provider: null
