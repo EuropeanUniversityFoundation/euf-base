@@ -18,10 +18,10 @@
             "type": "composer",
             "url": "https://asset-packagist.org/"
         },
-        {
-            "type": "vcs",
-            "url": "https://github.com/EuropeanUniversityFoundation/euf_bootstrap_sass/"
-        }
+        {"type": "vcs", "url": "https://github.com/EuropeanUniversityFoundation/euf_bootstrap_sass/"},
+        {"type": "vcs", "url": "https://github.com/EuropeanUniversityFoundation/eu_funding/"},
+        {"type": "vcs", "url": "https://github.com/EuropeanUniversityFoundation/openid_connect_eufidp/"},
+        {"type": "vcs", "url": "https://github.com/EuropeanUniversityFoundation/openid_connect_myacademicid/"}
     ],
     "require": {
         "php": ">=7.2.24",
@@ -47,7 +47,10 @@
         "drupal/smtp": "^1.0@beta",
         "drupal/token": "^1.7",
         "drush/drush": "^9.7.1 | ^10.0.0",
+        "euf/eu_funding": "^1.0@beta",
         "euf/euf_bootstrap_sass": "^1.0",
+        "euf/openid_connect_eufidp": "^1.0@beta",
+        "euf/openid_connect_myacademicid": "^1.0@beta",
         "oomphinc/composer-installers-extender": "^1.1",
         "vlucas/phpdotenv": "^4.0",
         "webflo/drupal-finder": "^1.0.0",
