@@ -51,7 +51,7 @@
         "euf/euf_bootstrap_sass": "^1.0",
         "euf/openid_connect_eufidp": "^1.0@beta",
         "euf/openid_connect_myacademicid": "^1.0@beta",
-        "oomphinc/composer-installers-extender": "^1.1",
+        "oomphinc/composer-installers-extender": "^2.0",
         "vlucas/phpdotenv": "^4.0",
         "webflo/drupal-finder": "^1.0.0",
         "zaporylie/composer-drupal-optimizations": "^1.0"
