@@ -2,6 +2,8 @@
 
 This is a base profile for Drupal 8 projects to be used within the EUF. This template is built upon the [drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project) and [docker4drupal](https://github.com/wodby/docker4drupal) - refer to the respective documentations whenever necessary.
 
+A Docker and a Vagrant arrangement are supplied. Check the corresponding Quick start with Docker/Vagrant chapter.
+
 ## Quick start with Docker
 
 In order to test this profile with Docker, you need `docker`, `docker-compose` and `make` installed on your system. If your system meets the requirements, follow these steps:
@@ -15,18 +17,34 @@ In order to test this profile with Docker, you need `docker`, `docker-compose` a
     composer install          # Install the necessary packages
     bash env-install.sh       # Quick command line installation
 
+## Quick start with Vagrant
+
+To use this profile with Vagrant, you have to install `Virtualbox`, `Vagrant` and add the [vagrant-env plugin](https://github.com/gosuri/vagrant-env) with the following command: `vagrant plugin install vagrant-env`
+The arrangement was created and tested on `VirtualBox 6.1` and `Vagrant 2.2.14`.
+After Vagrant is installed and set up on the host machine, run the following commands:
+
+    git clone git@github.com:EuropeanUniversityFoundation/euf-base.git
+    cd euf-base
+    cp .env.vagrant .env      # The .env file is ignored by version control
+    nano .env                 # Edit the environment variables if necessary
+    vagrant up                # Downloads, provisions and starts the Vagrant box
+    vagrant ssh               # Access a shell in the Virtualbox VM
+    composer install          # Install the necessary packages
+    bash env-install.sh       # Quick command line installation
+
 ## User guide
 
 1. [docker4drupal](#docker4drupal)
     1. [Basic setup](#basic-setup)
     2. [ENV variables for Docker](#env-variables-for-docker)
-2. [LAMP stack](#lamp-stack)
+2. [Vagrant with LAMP stack](#vagrant-with-lamp-stack)
+3. [LAMP stack](#lamp-stack)
     1. [Apache Virtualhost](#apache-virtualhost)
     2. [ENV variables for LAMP](#env-variables-for-lamp)
-3. [Installing Drupal](#installing-drupal)
+4. [Installing Drupal](#installing-drupal)
     1. [Fresh install](#fresh-install)
     2. [From existing configuration](#from-existing-configuration)
-4. [Troubleshooting](#troubleshooting)
+5. [Troubleshooting](#troubleshooting)
 
 
 ## docker4drupal
@@ -90,6 +108,21 @@ Inside the `.env` file there are many variables that impact the Docker setup, an
 By default the Traefik container will bind to port 8000; in order to use multiple setups at the same time, change the port number on your local environment to another number.  **Warning:** port 8025 is used by Mailhog.
 
 [Back to the User Guide](#user-guide)
+
+## Vagrant with LAMP stack
+
+Vagrant (and Virtualbox) provides a consistent development enviroment. Not as flexible as Docker, since it's a complete virtual machine without the possibility to dynamically add or remove containers, it should be easier to setup and use on Windows enviroments and saves the user the trouble of setting up a virtual machine and a LAMP stack or using a WAMP stack.
+
+### Setup steps
+
+ - Install Virtualbox, preferably 6.1 and Vagrant, preferably 2.2.*
+ - Clone this git repository into you development folder
+ - Change to the created `euf-base` directory
+ - In your shell use the `vagrant up` command
+ -
+
+
+
 
 ## LAMP stack
 
