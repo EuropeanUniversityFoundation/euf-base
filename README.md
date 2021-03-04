@@ -25,10 +25,10 @@ After Vagrant is installed and set up on the host machine, run the following com
 
     git clone git@github.com:EuropeanUniversityFoundation/euf-base.git
     cd euf-base
-    cp .env.vagrant .env      # The .env file is ignored by version control
-    nano .env                 # Edit the environment variables if necessary
+    cp .env.example .env      # The .env file is ignored by version control
+    nano .env                 # Edit the environment variables to use the values recommended for Vagrant (see comments for details)
     vagrant up                # Downloads, provisions and starts the Vagrant box
-    vagrant ssh               # Access a shell in the Virtualbox VM
+    vagrant ssh               # Access shell in the Virtualbox VM
     composer install          # Install the necessary packages
     bash env-install.sh       # Quick command line installation
 
@@ -37,7 +37,7 @@ After Vagrant is installed and set up on the host machine, run the following com
 1. [docker4drupal](#docker4drupal)
     1. [Basic setup](#basic-setup)
     2. [ENV variables for Docker](#env-variables-for-docker)
-2. [Vagrant with LAMP stack](#vagrant-with-lamp-stack)
+2. [Vagrant setup](#vagrant-setup)
 3. [LAMP stack](#lamp-stack)
     1. [Apache Virtualhost](#apache-virtualhost)
     2. [ENV variables for LAMP](#env-variables-for-lamp)
@@ -109,20 +109,27 @@ By default the Traefik container will bind to port 8000; in order to use multipl
 
 [Back to the User Guide](#user-guide)
 
-## Vagrant with LAMP stack
+## Vagrant setup
 
 Vagrant (and Virtualbox) provides a consistent development enviroment. Not as flexible as Docker, since it's a complete virtual machine without the possibility to dynamically add or remove containers, it should be easier to setup and use on Windows enviroments and saves the user the trouble of setting up a virtual machine and a LAMP stack or using a WAMP stack.
 
 ### Setup steps
 
- - Install Virtualbox, preferably 6.1 and Vagrant, preferably 2.2.*
- - Clone this git repository into you development folder
- - Change to the created `euf-base` directory
- - In your shell use the `vagrant up` command
- -
+ - Install Virtualbox, preferably 6.1 and Vagrant. Current arrangement was created and tested with the 2.2.* version
+ - Clone this git repository into your chosen folder
+ - Enter the created `euf-base` directory
+ - In your shell run `vagrant up` command
+ - You can log in to the shell of your Vagrant machine using: vagrant ssh
 
+ Next, follow the steps detailed in the [Install Drupal](#installing-drupal) chapter.
 
+### Additional useful information about the Vagrant setup
 
+The host machine's IP is `10.0.2.2` (Vagrant default) on the guest machine.
+
+Running the `vagrant up` for the first time provisions the machine which includes copying the Apache config file from the ./vagrant folder. Should you want to adjust Apache config, change the file and run provisioning again with `vagrant provision`
+
+[Back to the User Guide](#user-guide)
 
 ## LAMP stack
 

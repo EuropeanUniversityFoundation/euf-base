@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "ggrosz/debian10.lamp"
-  config.vm.box_version = "0.1.0"
+  config.vm.box_version = "0.2.0"
 
   # Install the env plugin for Vagrant to use the .env file
   # Command to run in host shell: vagrant plugin install vagrant-env
@@ -37,8 +37,8 @@ Vagrant.configure("2") do |config|
 
   # Setting post vagrant up message
   $msg = <<-MSG
-  --------------------------------------------------------------------------
-  --------------------------------------------------------------------------
+  --------------------------------------------------
+  --------------------------------------------------
 
   Info >>
 
@@ -50,12 +50,14 @@ Vagrant.configure("2") do |config|
 
   Run './env-install.sh'
 
-  Site address from host machine: http://#{ENV['PROJECT_BASE_URL']}:#{ENV['HTTP_PORT']}
+  Site address from host machine:
+  http://#{ENV['PROJECT_BASE_URL']}:#{ENV['HTTP_PORT']}
 
-  Phpmyadmin address from host machine: http://#{ENV['PROJECT_BASE_URL']}:#{ENV['HTTP_PORT']}/phpmyadmin
+  Phpmyadmin address from host machine:
+  http://#{ENV['PROJECT_BASE_URL']}:#{ENV['HTTP_PORT']}/phpmyadmin
 
-  --------------------------------------------------------------------------
-  --------------------------------------------------------------------------
+  --------------------------------------------------
+  --------------------------------------------------
   MSG
   config.vm.post_up_message = $msg
 
@@ -120,9 +122,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "file", source: "./vagrant/euf-base.vagrant.localhost.conf", destination: "$HOME/install/"
   config.vm.provision "shell", inline: <<-SHELL
-    apt-get update
-    sudo apt install -y php7.4-xml
-    wget -O install/composer-setup.php https://getcomposer.org/installer
+    wget -q -O install/composer-setup.php https://getcomposer.org/installer
     sudo php install/composer-setup.php --install-dir=/usr/local/bin --#{ENV['COMPOSER_VERSION']} --filename=composer
     mysql -uroot -e \"#{SQL_DB_CREATE}\"
     mysql -uroot -e \"#{SQL_DB_USER}\"
