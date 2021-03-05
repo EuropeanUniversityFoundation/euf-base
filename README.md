@@ -20,8 +20,9 @@ In order to test this profile with Docker, you need `docker`, `docker-compose` a
 ## Quick start with Vagrant
 
 To use this profile with Vagrant, you have to install `Virtualbox`, `Vagrant` and add the [vagrant-env plugin](https://github.com/gosuri/vagrant-env) with the following command: `vagrant plugin install vagrant-env`
+For Windows users, the vagrant plugin `vagrant-winnfsd` is also necessary. Install it with the following command: `vagrant plugin install vagrant-winnfsd`.
 The arrangement was created and tested on `VirtualBox 6.1` and `Vagrant 2.2.14`.
-After Vagrant is installed and set up on the host machine, run the following commands:
+After Vagrant is installed and set up on the host machine, run:
 
     git clone git@github.com:EuropeanUniversityFoundation/euf-base.git
     cd euf-base
@@ -118,16 +119,22 @@ Vagrant (and Virtualbox) provides a consistent development enviroment. Not as fl
  - Install Virtualbox, preferably 6.1 and Vagrant. Current arrangement was created and tested with the 2.2.* version
  - Clone this git repository into your chosen folder
  - Enter the created `euf-base` directory
+ - Copy the .env.example file to .env and review settings
  - In your shell run `vagrant up` command
  - You can log in to the shell of your Vagrant machine using: vagrant ssh
 
  Next, follow the steps detailed in the [Install Drupal](#installing-drupal) chapter.
 
-### Additional useful information about the Vagrant setup
+### Additional important information
 
 The host machine's IP is `10.0.2.2` (Vagrant default) on the guest machine.
 
 Running the `vagrant up` for the first time provisions the machine which includes copying the Apache config file from the ./vagrant folder. Should you want to adjust Apache config, change the file and run provisioning again with `vagrant provision`
+
+### For Windows users
+
+ - Vagrant needs an additional plugin to be installed, called `vagrant-winnfsd`. Install it with: `vagrant plugin install vagrant-winnfsd`
+ - If editing files in Windows, (.env for example, before using `vagrant up`), avoid using Notepad or WordPad, beacuse these have trouble handling encoding and Linux style line endings.
 
 [Back to the User Guide](#user-guide)
 
