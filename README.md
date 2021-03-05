@@ -10,6 +10,7 @@ In order to test this profile with Docker, you need `docker`, `docker-compose` a
 
     git clone git@github.com:EuropeanUniversityFoundation/euf-base.git
     cd euf-base
+    git chekout vagrant       # The Vagrant setup is not commited to the master branch yet
     cp .env.example .env      # The .env file is ignored by version control
     nano .env                 # Edit the environment variables if necessary
     make up                   # Create and start the Docker containers
