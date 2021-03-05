@@ -121,20 +121,20 @@ Vagrant (and Virtualbox) provides a consistent development enviroment. Not as fl
  - Enter the created `euf-base` directory
  - Copy the .env.example file to .env and review settings
  - In your shell run `vagrant up` command
- - You can log in to the shell of your Vagrant machine using: vagrant ssh
+ - You can log in to the shell of your Vagrant machine using: `vagrant ssh`
 
  Next, follow the steps detailed in the [Install Drupal](#installing-drupal) chapter.
+
+### For Windows users
+
+ - Vagrant needs an additional plugin to be installed, called `vagrant-winnfsd`. Install it with: `vagrant plugin install vagrant-winnfsd`
+ - If editing files in Windows, (.env for example, before using `vagrant up`), avoid using Notepad or WordPad, beacuse these have trouble handling encoding and Linux style line    endings.
 
 ### Additional important information
 
 The host machine's IP is `10.0.2.2` (Vagrant default) on the guest machine.
 
 Running the `vagrant up` for the first time provisions the machine which includes copying the Apache config file from the ./vagrant folder. Should you want to adjust Apache config, change the file and run provisioning again with `vagrant provision`
-
-### For Windows users
-
- - Vagrant needs an additional plugin to be installed, called `vagrant-winnfsd`. Install it with: `vagrant plugin install vagrant-winnfsd`
- - If editing files in Windows, (.env for example, before using `vagrant up`), avoid using Notepad or WordPad, beacuse these have trouble handling encoding and Linux style line endings.
 
 [Back to the User Guide](#user-guide)
 
