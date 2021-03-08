@@ -120,15 +120,21 @@ Vagrant.configure("2") do |config|
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
 
-  config.vm.provision "file", source: "./vagrant/euf-base.vagrant.localhost.conf", destination: "$HOME/install/"
+  config.vm.provision "file", source: "./vagrant/source.vagrant.localhost.conf", destination: "$HOME/install/#{ENV['PROJECT_BASE_URL']}.conf"
+  
   config.vm.provision "shell", inline: <<-SHELL
     wget -q -O install/composer-setup.php https://getcomposer.org/installer
     sudo php install/composer-setup.php --install-dir=/usr/local/bin --#{ENV['COMPOSER_VERSION']} --filename=composer
     mysql -uroot -e \"#{SQL_DB_CREATE}\"
     mysql -uroot -e \"#{SQL_DB_USER}\"
-    sudo cp ./install/euf-base.vagrant.localhost.conf /etc/apache2/sites-available/
-    sudo a2ensite euf-base.vagrant.localhost
+    sed -i 's/PROJECT_BASE_URL/#{ENV['PROJECT_BASE_URL']}/g' ./install/#{ENV['PROJECT_BASE_URL']}.conf
+    sudo cp ./install/#{ENV['PROJECT_BASE_URL']}.conf /etc/apache2/sites-available/
+    sudo a2ensite #{ENV['PROJECT_BASE_URL']}
     sudo systemctl restart apache2
     sudo rm -rf ./install
   SHELL
+  
+  config.vm.provision "shell", inline: <<-UNPRIVILEGED, privileged: false
+    composer config -g github-oauth.github.com #{ENV['COMPOSER_AUTH']}
+  UNPRIVILEGED
 end
