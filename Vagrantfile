@@ -25,12 +25,14 @@ Vagrant.configure("2") do |config|
   # Vagrantfile: ENV['DB_NAME']
   config.env.enable
 
+  config.vm.define ENV['PROJECT_NAME']
+
   # SQL queries to create database and user and grant permissions
   # Values from the .env file are used
-  Q1 = "CREATE DATABASE #{ENV['DB_NAME']}"
+  Q1 = "CREATE DATABASE IF NOT EXISTS #{ENV['DB_NAME']}"
   SQL_DB_CREATE = "#{Q1}"
 
-  Q2 = "CREATE USER '#{ENV['DB_NAME']}'@'localhost' IDENTIFIED BY '#{ENV['DB_PASSWORD']}';"
+  Q2 = "CREATE USER IF NOT EXISTS '#{ENV['DB_NAME']}'@'localhost' IDENTIFIED BY '#{ENV['DB_PASSWORD']}';"
   Q3 = "GRANT ALL ON #{ENV['DB_NAME']}.* TO '#{ENV['DB_USER']}'@'%' IDENTIFIED BY '#{ENV['DB_PASSWORD']}' WITH GRANT OPTION;"
   Q4 = "FLUSH PRIVILEGES;"
   SQL_DB_USER = "#{Q2}#{Q3}#{Q4}"
@@ -121,8 +123,11 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.
 
   config.vm.provision "file", source: "./vagrant/source.vagrant.localhost.conf", destination: "$HOME/install/#{ENV['PROJECT_BASE_URL']}.conf"
-  
+
   config.vm.provision "shell", inline: <<-SHELL
+    echo "----------------------------"
+    echo "Base provisioning started..."
+    echo "----------------------------"
     wget -q -O install/composer-setup.php https://getcomposer.org/installer
     sudo php install/composer-setup.php --install-dir=/usr/local/bin --#{ENV['COMPOSER_VERSION']} --filename=composer
     mysql -uroot -e \"#{SQL_DB_CREATE}\"
@@ -133,8 +138,35 @@ Vagrant.configure("2") do |config|
     sudo systemctl restart apache2
     sudo rm -rf ./install
   SHELL
-  
+
   config.vm.provision "shell", inline: <<-UNPRIVILEGED, privileged: false
     composer config -g github-oauth.github.com #{ENV['COMPOSER_AUTH']}
   UNPRIVILEGED
+
+  if ENV['MACHINE_TYPE'] == 'dev'
+    config.vm.provision "shell", inline: <<-DEVSHELL
+      echo "---------------------------"
+      echo "Dev provisioning started..."
+      echo "---------------------------"
+      sudo apt-get update
+      sudo apt-get install php7.4-xdebug
+      sudo systemctl restart apache2
+    DEVSHELL
+  end
+
+  if ENV['MACHINE_TYPE'] == 'test'
+    config.vm.provision "shell", inline: <<-TESTSHELL
+      echo "----------------------------"
+      echo "Test provisioning started..."
+      echo "----------------------------"
+    TESTSHELL
+  end
+
+  if ENV['MACHINE_TYPE'] == 'prod'
+    config.vm.provision "shell", inline: <<-PRODSHELL
+      echo "----------------------------"
+      echo "Prod provisioning started..."
+      echo "----------------------------"
+    PRODSHELL
+  end
 end

@@ -126,6 +126,19 @@ Vagrant (and Virtualbox) provides a consistent development enviroment. Not as fl
 
  Next, follow the steps detailed in the [Install Drupal](#installing-drupal) chapter.
 
+### ENV variables for Vagrant
+
+Inside the `.env` file there are many variables that impact the Docker setup, and most are set to sensible defaults. Others require some attention:
+
+  - `PROJECT_NAME` is used to name the machine;
+  - `PROJECT_BASE_URL` is used to define the URL for the site and configuring Apache settings;
+  - `HTTP_PORT` is the port at which the site will be available;
+  - `DB_` variables are used for the database and whatever connects to it;
+  - `COMPOSER_VERSION` sets which composer version to install during provisioning (v1 or v2)
+  - `COMPOSER_AUTH` Github token to be used by composer inside the guest machine.
+  - `MACHINE_TYPE` (experimental) empty / dev / test / prod
+     You can define futher provisioning steps in the Vagrantfile for the different setups 
+
 ### For Windows users
 
  - Vagrant needs an additional plugin to be installed, called `vagrant-winnfsd`. Install it with: `vagrant plugin install vagrant-winnfsd`
