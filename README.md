@@ -129,9 +129,11 @@ Vagrant (and Virtualbox) provides a consistent development enviroment. Not as fl
 ### For Windows users
 
  - Vagrant needs an additional plugin to be installed, called `vagrant-winnfsd`. Install it with: `vagrant plugin install vagrant-winnfsd`
- - If editing files in Windows, (.env for example, before using `vagrant up`), avoid using Notepad or WordPad, beacuse these have trouble handling encoding and Linux style line    endings.
+ - If editing files in Windows, (.env for example, before using `vagrant up`), avoid using Notepad or WordPad, beacuse these have trouble handling encoding and Linux style line endings.
 
 ### Additional important information
+
+Vagrant provisioning tries adding the Git token specified in the .env file COMPOSER_AUTH enviroment variable. If it's not provided, provisioning will give an error. However, it does not interfere with machine setup, you can safely ignore it.
 
 The host machine's IP is `10.0.2.2` (Vagrant default) on the guest machine.
 
