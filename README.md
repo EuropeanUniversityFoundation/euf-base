@@ -8,12 +8,12 @@ In order to test this profile with Docker, you need `docker`, `docker-compose` a
 
     git clone git@github.com:EuropeanUniversityFoundation/euf-base.git
     cd euf-base
-    cp .env.example .env      # The .env file is ignored by version control
-    nano .env                 # Edit the environment variables if necessary
-    make up                   # Create and start the Docker containers
-    make shell                # Access a shell in the PHP container
-    composer install          # Install the necessary packages
-    bash env-install.sh       # Quick command line installation
+    cp .env.example .env          # The .env file is ignored by version control
+    nano .env                     # Edit the environment variables if necessary
+    make up                       # Create and start the Docker containers
+    make shell                    # Access a shell in the PHP container
+    composer install              # Install the necessary packages
+    bash scripts/env-install.sh   # Quick command line installation
 
 ## User guide
 
@@ -141,8 +141,8 @@ To perform a first time installation, make sure you get the latest version of th
 
 Use the bundled shell script to perform a quick install from the `.env` variables:
 
-    chmod u+x env-install.sh  # ensure the script is executable
-    bash env-install.sh       # run the script using bash (safest)
+    chmod u+x scripts/env-install.sh  # ensure the script is executable
+    bash scripts/env-install.sh       # run the script using bash (safest)
 
 After a first time installation, change the `settings.php` file to use `settings.local.php` instead:
 
@@ -166,8 +166,8 @@ This allows `settings.local.php` to use the variables defined in the `.env` file
 If you want to reinstall your project using the exported configuration in the `config/sync` directory, install the exact packages versions and configuration by running these commands:
 
     composer install
-    chmod u+x config-install.sh
-    bash config-install.sh
+    chmod u+x scripts/config-install.sh
+    bash scripts/config-install.sh
 
 If necessary, perform the same changes to `settings.php` as described above and clear the cache.
 
