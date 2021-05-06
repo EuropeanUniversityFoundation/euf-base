@@ -64,7 +64,7 @@ bootstrap_barrio_region_class_footer_first: 'col-md-5 col-lg-4 col-xl-3'
 bootstrap_barrio_region_clean_footer_second: 0
 bootstrap_barrio_region_class_footer_second: 'col-md-7 col-lg-8 col-xl-6'
 bootstrap_barrio_region_clean_footer_third: 0
-bootstrap_barrio_region_class_footer_third: ''
+bootstrap_barrio_region_class_footer_third: 'col-xl-3 text-lg-center'
 bootstrap_barrio_region_clean_footer_fourth: 0
 bootstrap_barrio_region_class_footer_fourth: ''
 bootstrap_barrio_region_clean_footer_fifth: 0
