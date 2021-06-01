@@ -185,7 +185,7 @@ cd ${ROOT}
 ## Execute post-backup commands
 ${DRUSH_PATH} sset system.maintenance_mode 0
 ${DRUSH_PATH} cr
-curl -s ${PROJECT_BASE_URL} > /dev/null
+curl -sL ${PROJECT_BASE_URL} > /dev/null
 
 ## Clean up old backups
 
