@@ -178,6 +178,10 @@ if [[ ${BACKUP_SELECTED} != "" ]]; then
   ${DRUSH_PATH} sset system.maintenance_mode 0
   ${DRUSH_PATH} cr
 
+  # Issue reminder
+  echo -e "You may have to run the following command in a local environment:"
+  echo -e "chmod a+w web/sites/default/files/ -R"
+
 else
   echo -e "\nNo valid backups to restore"
   exit 1
