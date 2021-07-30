@@ -179,8 +179,9 @@ if [[ ${BACKUP_SELECTED} != "" ]]; then
   ${DRUSH_PATH} cr
 
   # Issue reminder
-  echo -e "You may have to run the following command in a local environment:"
+  echo -e "You may have to run the following commands in a local environment:"
   echo -e "chmod a+w web/sites/default/files/ -R"
+  echo -e "chmod a+w private/ -R"
 
 else
   echo -e "\nNo valid backups to restore"
