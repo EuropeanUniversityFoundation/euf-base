@@ -73,7 +73,7 @@ echo -e "Total backups:" ${#CHECKSUMS[@]}
 CHECKSUMS_VALID=()
 for item in ${CHECKSUMS[@]}
 do
-  md5sum -cs ${item}
+  md5sum -c ${item}
   if [ $? -eq 0 ]
   then
     CHECKSUMS_VALID+=(${item})
