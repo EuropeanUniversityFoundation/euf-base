@@ -1,0 +1,23 @@
+uuid: 50d80483-27af-44ed-933a-e78dafe9ddf1
+langcode: en
+status: true
+dependencies:
+  module:
+    - eu_funding
+  theme:
+    - euf_bootstrap_sass
+_core:
+  default_config_hash: Smq41MqqUhOTF1zqDNklr07UikgiNMqNlbmaCgZZdcc
+id: eufundingbanner
+theme: euf_bootstrap_sass
+region: footer_first
+weight: 0
+provider: null
+plugin: eu_funding_banner
+settings:
+  id: eu_funding_banner
+  label: 'EU funding banner'
+  provider: eu_funding
+  label_display: '0'
+  high_contrast: 1
+visibility: {  }

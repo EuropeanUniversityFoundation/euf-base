@@ -1,0 +1,22 @@
+uuid: c7ba11b3-75eb-40ec-9394-2d1dba327ff4
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - euf_bootstrap_sass
+_core:
+  default_config_hash: SHxyya0mci4QhnYj28cw3YgIhTmWhLS7flDQYEXCDTw
+id: euf_bootstrap_sass_breadcrumbs
+theme: euf_bootstrap_sass
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

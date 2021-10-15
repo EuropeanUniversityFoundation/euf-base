@@ -1,0 +1,22 @@
+uuid: 23c2a0e5-2bfe-4144-91f7-e4950ba117dd
+langcode: en
+status: true
+dependencies:
+  module:
+    - eu_funding
+  theme:
+    - euf_bootstrap_sass
+_core:
+  default_config_hash: y9Oxyk6j29Yn_fThZHlMJc7BJrAwdXyO-CATlicg6sw
+id: eufundingdisclaimer
+theme: euf_bootstrap_sass
+region: footer_second
+weight: 0
+provider: null
+plugin: eu_funding_disclaimer
+settings:
+  id: eu_funding_disclaimer
+  label: 'EU funding disclaimer'
+  provider: eu_funding
+  label_display: '0'
+visibility: {  }
