@@ -59,11 +59,13 @@ Out of the box, this modified version of **docker4drupal** includes the followin
   - *MariaDB* as the database engine;
   - *Mailhog* to handle emails.
 
-The **docker4drupal** stack can include many more components, but it is recommended that any additional components be include via a `docker-composer.override.yml` file, which will be ignored by version control, to keep the base project simple and fast. Some examples are included:
+The **docker4drupal** stack can include many more components, but it is recommended that any additional components be included via a `docker-composer.override.yml` file, which will be ignored by version control, to keep the base project simple and fast. Some examples are included:
 
 #### github.docker-compose.override.yml
 
 Use this to modify the *PHP* container and add a Github authentication token to Composer. Some dependencies are pulled directly from Github repositories. During development, every `composer` operation will hit the Github API, which can lead to too many anonymous calls and getting locked out. To avoid this, generate a Personal Access Token and include it in the `.env` file; the token will then be loaded by the Composer configuration inside the PHP container.
+
+Also, the overrides include mounting your personal git configuration and SSH key, allowing to commit and push from within the PHP container shell - no more commits by `wodby`!
 
 #### node.docker-compose.override.yml
 
@@ -130,7 +132,7 @@ Adding a Github authentication token to **Composer** should be done manually, an
 
 ## Installing Drupal
 
-Installing Drupal for the first time can be done via the web GUI using your browser, or it can be done via the command line with the help of **Drush** or **Drupal Console**. This project includes shell scripts to leverage the variables set in the `.env` file and perform the installation quickly via the command line. Installing via the web GUI is also possible, although it requires more attention to details, especially in a Docker setup.
+Installing Drupal for the first time can be done via the web GUI using your browser, or it can be done via the command line with the help of **Drush**. This project includes shell scripts to leverage the variables set in the `.env` file and perform the installation quickly via the command line. Installing via the web GUI is also possible, although it requires more attention to details, especially in a Docker setup.
 
 ### Fresh install
 
