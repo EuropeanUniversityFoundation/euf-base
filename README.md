@@ -143,8 +143,8 @@ To perform a first time installation, make sure you get the latest version of th
 
 Use the bundled shell script to perform a quick install from the `.env` variables:
 
-    chmod u+x scripts/env-install.sh  # ensure the script is executable
-    bash scripts/env-install.sh       # run the script using bash (safest)
+    chmod u+x scripts/env_install.sh  # ensure the script is executable
+    bash scripts/env_install.sh       # run the script using bash (safest)
 
 After a first time installation, change the `settings.php` file to use `settings.local.php` instead:
 
@@ -168,8 +168,8 @@ This allows `settings.local.php` to use the variables defined in the `.env` file
 If you want to reinstall your project using the exported configuration in the `config/sync` directory, install the exact packages versions and configuration by running these commands:
 
     composer install
-    chmod u+x scripts/config-install.sh
-    bash scripts/config-install.sh
+    chmod u+x scripts/config_install.sh
+    bash scripts/config_install.sh
 
 If necessary, perform the same changes to `settings.php` as described above and clear the cache.
 

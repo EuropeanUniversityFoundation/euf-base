@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Install a Drupal site from .env
-echo -e "\nInstall Drupal from existing configuration."
+echo -e "\nInstall Drupal from environment variables."
 
 # Check for a local drush binary
 DRUSH="vendor/bin/drush"
 if [[ -f $PWD/${DRUSH} ]]; then
-  echo -e ">> Drush found:         "$PWD/${DRUSH}
+  echo -e ">> Drush found:              "$PWD/${DRUSH}
 else
   echo -e ">> Drush is missing! Exiting..."
   exit 1
@@ -15,19 +15,10 @@ fi
 # Check for .env in the current directory
 ENV=".env"
 if [[ -f $PWD/${ENV} ]]; then
-  echo -e ">> .env found:          "$PWD/${ENV}
+  echo -e ">> .env found:               "$PWD/${ENV}
   source ${ENV}
 else
   echo -e ">> .env is missing! Exiting..."
-  exit 1
-fi
-
-# Check for .yml files in the config/sync directory
-EXTENSION_YML="config/sync/core.extension.yml"
-if [[ -f $PWD/${EXTENSION_YML} ]]; then
-  echo -e ">> Configuration found: "$PWD/${EXTENSION_YML}
-else
-  echo -e ">> Configuration is missing! Exiting..."
   exit 1
 fi
 
@@ -49,7 +40,7 @@ echo "DB_HOST:      "${DB_HOST}
 echo "DB_PORT:      "${DB_PORT}
 echo "DB_DRIVER:    "${DB_DRIVER}
 echo -e "\nSite settings"
-echo -e "PROFILE:      \033[9m"${PROFILE}"\033[0m \033[1mminimal\033[0m"
+echo "PROFILE:      "${PROFILE}
 echo "SITE_NAME:    "${SITE_NAME}
 echo "SITE_MAIL:    "${SITE_MAIL}
 echo "ACCOUNT_NAME: "${ACCOUNT_NAME}
@@ -71,18 +62,8 @@ while true; do
     esac
 done
 
-# Change the configuration files to allow the config install
-if [[ ${PROFILE} != "minimal" ]]; then
-  OLDMODULE=${PROFILE}": 1000"
-  NEWMODULE="minimal: 1000"
-  sed -i "s/${OLDMODULE}/${NEWMODULE}/g" $PWD/${EXTENSION_YML}
-  OLDPROFILE="profile: "${PROFILE}
-  NEWPROFILE="profile: minimal"
-  sed -i "s/${OLDPROFILE}/${NEWPROFILE}/g" $PWD/${EXTENSION_YML}
-fi
-
 # Perform the site install
-${DRUSH} site-install minimal --existing-config \
+${DRUSH} site-install ${PROFILE} \
 install_configure_form.enable_update_status_emails=NULL \
 --db-url="${DB_DRIVER}"://"${DB_USER}":"${DB_PASSWORD}"@"${DB_HOST}":\
 "${DB_PORT}"/"${DB_NAME}" \
@@ -101,5 +82,4 @@ echo -e "Added write permission to web/sites/default/settings.php"
 chmod 0644 $PWD/web/sites/default/settings.local.php
 echo -e "Added write permission to web/sites/default/settings.local.php"
 
-echo -e "\nFind the site at http://${PROJECT_BASE_URL}:${HTTP_PORT}"
 exit 0
