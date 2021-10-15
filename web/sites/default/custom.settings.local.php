@@ -173,3 +173,28 @@ $settings['trusted_host_patterns'] = array(
 
 /* Disable SMTP in local development */
 $config['system.mail']['interface']['default'] = 'php_mail';
+
+/* Assign environment indicator values */
+$env_name = getenv('ENV_NAME');
+$env_fg = '#ffffff';
+switch ($env_name) {
+  case 'Local':
+    $env_bg = '#23923d';
+    break;
+
+  case 'Testing':
+    $env_bg = '#148ea1';
+    break;
+
+  case 'Production':
+    $env_bg = '#d32535';
+    break;
+
+  default:
+    $env_name = 'undefined ENV_NAME';
+    $env_bg = '#ff00bf';
+    break;
+}
+$config['environment_indicator.indicator']['bg_color'] = $env_bg;
+$config['environment_indicator.indicator']['fg_color'] = $env_fg;
+$config['environment_indicator.indicator']['name'] = $env_name;
