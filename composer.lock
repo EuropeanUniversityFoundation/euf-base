@@ -4321,16 +4321,16 @@
         },
         {
             "name": "euf/openid_connect_eufidp",
-            "version": "1.0.0-beta2",
+            "version": "1.0.0-beta3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EuropeanUniversityFoundation/openid_connect_eufidp.git",
-                "reference": "fd74a6a19d5adb8f5ec27d2644244b05c3e51efc"
+                "reference": "58e404c07c9a36067e41b3fd016dbd801d260618"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EuropeanUniversityFoundation/openid_connect_eufidp/zipball/fd74a6a19d5adb8f5ec27d2644244b05c3e51efc",
-                "reference": "fd74a6a19d5adb8f5ec27d2644244b05c3e51efc",
+                "url": "https://api.github.com/repos/EuropeanUniversityFoundation/openid_connect_eufidp/zipball/58e404c07c9a36067e41b3fd016dbd801d260618",
+                "reference": "58e404c07c9a36067e41b3fd016dbd801d260618",
                 "shasum": ""
             },
             "type": "drupal-module",
@@ -4340,20 +4340,20 @@
                 "issues": "https://github.com/EuropeanUniversityFoundation/openid_connect_eufidp/issues",
                 "source": "https://github.com/EuropeanUniversityFoundation/openid_connect_eufidp"
             },
-            "time": "2021-02-03T14:08:41+00:00"
+            "time": "2021-10-05T12:14:28+00:00"
         },
         {
             "name": "euf/openid_connect_myacademicid",
-            "version": "1.0.0-beta2",
+            "version": "1.0.0-beta3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EuropeanUniversityFoundation/openid_connect_myacademicid.git",
-                "reference": "8c8b201fdb332cd4f1becc52e474c9c8d6dd6ba1"
+                "reference": "1aa45bc6e738ce48950af874e77be72e9caff9f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EuropeanUniversityFoundation/openid_connect_myacademicid/zipball/8c8b201fdb332cd4f1becc52e474c9c8d6dd6ba1",
-                "reference": "8c8b201fdb332cd4f1becc52e474c9c8d6dd6ba1",
+                "url": "https://api.github.com/repos/EuropeanUniversityFoundation/openid_connect_myacademicid/zipball/1aa45bc6e738ce48950af874e77be72e9caff9f6",
+                "reference": "1aa45bc6e738ce48950af874e77be72e9caff9f6",
                 "shasum": ""
             },
             "type": "drupal-module",
@@ -4363,7 +4363,7 @@
                 "issues": "https://github.com/EuropeanUniversityFoundation/openid_connect_myacademicid/issues",
                 "source": "https://github.com/EuropeanUniversityFoundation/openid_connect_myacademicid"
             },
-            "time": "2021-02-03T14:08:20+00:00"
+            "time": "2021-10-05T12:18:38+00:00"
         },
         {
             "name": "grasmash/expander",
