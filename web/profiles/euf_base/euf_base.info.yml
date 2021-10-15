@@ -1,7 +1,7 @@
 name: EUF Base
 type: profile
 description: 'Base profile for EUF Drupal 8 projects'
-core: 8.x
+core_version_requirement: ^8 || ^9
 
 # Modules to install
 install:
