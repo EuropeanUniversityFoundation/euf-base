@@ -36,7 +36,7 @@ class SettingsForm extends ConfigFormBase {
     $form['wrap'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Wrap user account form item in a details element.'),
-      '#default_value' => $config->get('base_ui_tweaks.wrap'),
+      '#default_value' => $config->get('wrap'),
       '#return_value' => TRUE,
     ];
 
@@ -56,7 +56,7 @@ class SettingsForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $config = $this->config('base_ui_tweaks.settings');
     $wrap = $form_state->getValue('wrap');
-    $config->set('base_ui_tweaks.wrap', $wrap);
+    $config->set('wrap', $wrap);
     $config->save();
 
     parent::submitForm($form, $form_state);
