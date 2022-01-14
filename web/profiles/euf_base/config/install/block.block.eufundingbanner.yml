@@ -14,7 +14,7 @@ plugin: eu_funding_banner
 settings:
   id: eu_funding_banner
   label: 'EU funding banner'
-  provider: eu_funding
   label_display: '0'
+  provider: eu_funding
   high_contrast: 1
 visibility: {  }

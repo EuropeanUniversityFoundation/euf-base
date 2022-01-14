@@ -1,3 +1,4 @@
+langcode: en
 display_denied_message: true
 access_denied_message: 'Access denied. You must log in to view this page.'
 access_denied_message_type: error
@@ -7,4 +8,3 @@ default_redirect_code: 302
 destination_parameter_override: ''
 match_noredirect_pages: ''
 redirect_to_destination: true
-langcode: en
