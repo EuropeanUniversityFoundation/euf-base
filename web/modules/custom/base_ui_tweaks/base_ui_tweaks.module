@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Contains base_ui_tweaks.module.
+ */
+
+ use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function base_ui_tweaks_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the base_ui_tweaks module.
+    case 'help.page.base_ui_tweaks':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Example custom module included in the EUF base installation profile.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function base_ui_tweaks_form_user_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $config = \Drupal::config('base_ui_tweaks.settings');
+
+  if ($config->get('base_ui_tweaks.wrap')) {
+    $extra_fields = \Drupal::service('entity_field.manager')
+      ->getExtraFields('user', 'user');
+
+    $form['account']['#type']     = 'details';
+    $form['account']['#title']    = $extra_fields['form']['account']['label'];
+    $form['account']['#open']     = ($form_id === 'user_register_form');
+    $form['account']['#required'] = ($form_id === 'user_register_form');
+  }
+}

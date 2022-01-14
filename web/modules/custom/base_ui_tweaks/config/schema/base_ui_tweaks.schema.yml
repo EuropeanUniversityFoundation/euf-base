@@ -1,0 +1,7 @@
+base_ui_tweaks.settings:
+  type: config_object
+  label: 'UI Tweaks settings'
+  mapping:
+    wrap:
+      type: boolean
+      label: 'Wrap user account form item in a details element.'

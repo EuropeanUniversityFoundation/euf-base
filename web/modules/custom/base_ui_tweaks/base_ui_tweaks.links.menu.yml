@@ -1,0 +1,12 @@
+base_ui_tweaks.admin:
+  title: UI Tweaks
+  description: Configure UI Tweaks.
+  parent: system.admin_config_ui
+  route_name: base_ui_tweaks.admin
+  weight: 10
+
+base_ui_tweaks.settings_form:
+  title: Settings
+  description: UI Tweaks settings.
+  parent: base_ui_tweaks.admin
+  route_name: base_ui_tweaks.settings_form
