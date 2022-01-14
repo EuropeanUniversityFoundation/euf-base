@@ -43,6 +43,7 @@
         "drupal/jquery_ui_accordion": "^1.1",
         "drupal/link_attributes": "^1.10",
         "drupal/module_filter": "^3.1",
+        "drupal/noreqnewpass": "^1.2",
         "drupal/openid_connect": "^1.0",
         "drupal/pathauto": "^1.8",
         "drupal/r4032login": "^2.0",
