@@ -26,7 +26,10 @@ In order to test this profile with Docker, you need `docker`, `docker-compose` a
 3. [Installing Drupal](#installing-drupal)
     1. [Fresh install](#fresh-install)
     2. [From existing configuration](#from-existing-configuration)
-4. [Troubleshooting](#troubleshooting)
+4. [PHPUnit](#phpunit)
+    1. [Docker](#docker)
+    2. [Other environments](#other-environments)
+5. [Troubleshooting](#troubleshooting)
 
 
 ## docker4drupal
@@ -172,6 +175,29 @@ If you want to reinstall your project using the exported configuration in the `c
     bash scripts/config_install.sh
 
 If necessary, perform the same changes to `settings.php` as described above and clear the cache.
+
+[Back to the User Guide](#user-guide)
+
+## PHPUnit
+
+It is possible to run PHPUnit tests within this project, given some preliminary setup:
+
+    mkdir web/sites/simpletest
+    chmod a+w web/sites/simpletest/ -R
+
+### Docker
+
+To run PHPUnit tests for your custom modules, execute the following commands:
+
+    docker-compose exec --user www-data php sh
+    vendor/bin/phpunit -c phpunit.xml.dist web/modules/custom/
+
+### Other environments
+
+In a regular LAMP stack, configuration must be changed. Individual PHPUnit configuration is ignored and Functional tests in particular must be run with a different system user:
+
+    cp phpunit.xml.dist phpunit.xml
+    sudo -u www-data -E vendor/bin/phpunit -c phpunit.xml web/modules/custom/
 
 [Back to the User Guide](#user-guide)
 

@@ -63,6 +63,7 @@
     },
     "require-dev": {
         "drupal/core-dev": "^9.2",
+        "phpspec/prophecy-phpunit": "^2",
         "roave/security-advisories": "dev-master"
     },
     "conflict": {
