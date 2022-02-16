@@ -78,7 +78,8 @@
             "cweagans/composer-patches": true,
             "drupal/core-composer-scaffold": true,
             "oomphinc/composer-installers-extender": true,
-            "zaporylie/composer-drupal-optimizations": true
+            "zaporylie/composer-drupal-optimizations": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
     "autoload": {
