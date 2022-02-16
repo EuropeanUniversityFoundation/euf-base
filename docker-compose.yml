@@ -26,6 +26,7 @@ services:
 #      DB_PASSWORD: $DB_PASSWORD
 #      DB_NAME: $DB_NAME
 #      DB_DRIVER: $DB_DRIVER
+#      DRUSH_OPTIONS_URI: "http://${PROJECT_BASE_URL}:8000"
 #      PHP_FPM_USER: wodby
 #      PHP_FPM_GROUP: wodby
 #      COLUMNS: 80 # Set 80 columns for docker exec -it.
@@ -45,7 +46,7 @@ services:
     volumes:
     - ./:/var/www/html:cached
 ## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
-#    - mutagen:/var/www/html
+#    - drupal:/var/www/html
 ## For XHProf and Xdebug profiler traces
 #    - files:/mnt/files
 
@@ -57,6 +58,8 @@ services:
     command: sudo -E LD_PRELOAD=/usr/lib/preloadable_libiconv.so crond -f -d 0
     volumes:
     - ./:/var/www/html:cached
+## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
+#    - drupal:/var/www/html
 
   nginx:
     image: wodby/nginx:$NGINX_TAG
@@ -73,8 +76,7 @@ services:
     volumes:
     - ./:/var/www/html:cached
 ## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
-#    - mutagen:/var/www/html
-
+#    - drupal:/var/www/html
     labels:
     - "traefik.http.routers.${PROJECT_NAME}_nginx.rule=Host(`${PROJECT_BASE_URL}`)"
 
@@ -93,6 +95,7 @@ services:
 #      POSTGRES_PASSWORD: $DB_PASSWORD
 #      POSTGRES_DB: $DB_NAME
 #      POSTGRES_USER: $DB_USER
+#      POSTGRES_DB_EXTENSIONS: pg_trgm
 #    volumes:
 #    - ./postgres-init:/docker-entrypoint-initdb.d # Place init file(s) here.
 #    - /path/to/postgres/data/on/host:/var/lib/postgresql/data # Use bind mount
@@ -110,7 +113,7 @@ services:
 #    volumes:
 #    - ./:/var/www/html:cached
 ## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
-#    - mutagen:/var/www/html
+#    - drupal:/var/www/html
 
 #    labels:
 #    - "traefik.http.routers.${PROJECT_NAME}_apache.rule=Host(`${PROJECT_BASE_URL}`)"
@@ -196,7 +199,7 @@ services:
 #  node:
 #    image: wodby/node:$NODE_TAG
 #    container_name: "${PROJECT_NAME}_node"
-#    working_dir: /var/www/html/web/themes/custom/machine_name_of_the_custom_theme
+#    working_dir: /var/www/html/path/to/theme/to/build
 #    labels:
 #    - "traefik.http.services.${PROJECT_NAME}_node.loadbalancer.server.port=3000"
 #    - "traefik.http.routers.${PROJECT_NAME}_node.rule=Host(`node.${PROJECT_BASE_URL}`)"
@@ -204,7 +207,7 @@ services:
 #    - "3000"
 #    volumes:
 #    - ./:/var/www/html
-#    command: sh -c 'npm install --global gulp-cli && npm install && tail -f /dev/null'
+#    command: sh -c 'yarn install && yarn run start'
 
 #  blackfire:
 #    image: blackfire/blackfire
@@ -278,17 +281,27 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
-#  mutagen:
-#    build:
-#      context: .
-#      dockerfile: mutagen/Dockerfile
-#    init: true
-#    container_name: "mutagen"
-#    volumes:
-#    - mutagen:/var/www/html
+#x-mutagen:
+#  sync:
+#    defaults:
+#      ignore:
+#        vcs: true
+#        paths:
+#        - .DS_Store
+#        - .history
+#        - .idea
+#    drupal:
+#      alpha: "."
+#      beta: "volume://drupal"
+#      configurationBeta:
+#        permissions:
+#          defaultFileMode: 0644
+#          defaultDirectoryMode: 0755
+#          defaultOwner: "id:501"
+#          defaultGroup: "id:20"
 
 #volumes:
 ## For macOS users (Mutagen)
-#  mutagen:
+#  drupal:
 ## For Xdebug profiler
 #  files:
