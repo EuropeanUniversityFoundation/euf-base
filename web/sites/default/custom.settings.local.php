@@ -198,3 +198,13 @@ switch ($env_name) {
 $config['environment_indicator.indicator']['bg_color'] = $env_bg;
 $config['environment_indicator.indicator']['fg_color'] = $env_fg;
 $config['environment_indicator.indicator']['name'] = $env_name;
+
+/* EUF IDP settings */
+#$config['openid_connect.settings.eufidp']['enabled'] = FALSE;
+#$config['openid_connect.settings.eufidp']['settings']['client_id'] = 'real_client_id';
+#$config['openid_connect.settings.eufidp']['settings']['client_secret'] = 'real_client_secret';
+
+/* MyAcademicID settings */
+#$config['openid_connect.settings.myacademicid']['enabled'] = FALSE;
+#$config['openid_connect.settings.myacademicid']['settings']['client_id'] = 'real_client_id';
+#$config['openid_connect.settings.myacademicid']['settings']['client_secret'] = 'real_client_secret';
