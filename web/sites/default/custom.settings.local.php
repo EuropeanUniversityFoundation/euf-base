@@ -208,3 +208,6 @@ $config['environment_indicator.indicator']['name'] = $env_name;
 #$config['openid_connect.settings.myacademicid']['enabled'] = FALSE;
 #$config['openid_connect.settings.myacademicid']['settings']['client_id'] = 'real_client_id';
 #$config['openid_connect.settings.myacademicid']['settings']['client_secret'] = 'real_client_secret';
+
+/* Cookies module settings */
+#$config['cookies.config']['cookie_domain'] = getenv('PROJECT_BASE_URL');
