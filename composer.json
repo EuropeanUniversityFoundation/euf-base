@@ -50,7 +50,7 @@
         "drupal/restui": "^1.19",
         "drupal/smtp": "^1.0@beta",
         "drupal/token": "^1.7",
-        "drush/drush": "^9.7.1 | ^10.0.0",
+        "drush/drush": "^11.0.0",
         "euf/eu_funding": "^1.0@beta",
         "euf/euf_bootstrap_sass": "^1.0",
         "euf/openid_connect_eufidp": "^1.0@beta",
