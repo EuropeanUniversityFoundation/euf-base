@@ -33,7 +33,7 @@
         "drupal/better_exposed_filters": "^5.0@beta",
         "drupal/bootstrap_barrio": "^4.27",
         "drupal/cookies": "^1.0",
-        "drupal/core-composer-scaffold": "^9.2",
+        "drupal/core-composer-scaffold": "^9.4.7",
         "drupal/core-recommended": "^9.4.7",
         "drupal/ctools": "^3.4",
         "drupal/devel": "^4.1",
@@ -62,7 +62,7 @@
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
-        "drupal/core-dev": "^9.2",
+        "drupal/core-dev": "^9.4.7",
         "phpspec/prophecy-phpunit": "^2",
         "roave/security-advisories": "dev-master"
     },
