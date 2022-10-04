@@ -34,7 +34,7 @@
         "drupal/bootstrap_barrio": "^4.27",
         "drupal/cookies": "^1.0",
         "drupal/core-composer-scaffold": "^9.2",
-        "drupal/core-recommended": "^9.2",
+        "drupal/core-recommended": "^9.4.7",
         "drupal/ctools": "^3.4",
         "drupal/devel": "^4.1",
         "drupal/environment_indicator": "^4.0",
