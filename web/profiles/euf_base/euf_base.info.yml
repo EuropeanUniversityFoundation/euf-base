@@ -1,6 +1,6 @@
 name: EUF Base
 type: profile
-description: 'Base profile for EUF Drupal 8 projects'
+description: 'Base profile for EUF Drupal 8/9 projects'
 core_version_requirement: ^8 || ^9
 version: VERSION
 
@@ -8,7 +8,6 @@ version: VERSION
 install:
   - 'admin_toolbar'
   - 'admin_toolbar_links_access_filter'
-  - 'admin_toolbar_search'
   - 'admin_toolbar_tools'
   - 'adminimal_admin_toolbar'
   - 'automated_cron'
@@ -16,10 +15,9 @@ install:
   - 'block'
   - 'block_content'
   - 'breakpoint'
-  - 'ckeditor'
+  - 'ckeditor5'
   - 'config'
   - 'contextual'
-  - 'ctools'
   - 'datetime'
   - 'dblog'
   - 'dynamic_page_cache'
@@ -35,18 +33,20 @@ install:
   - 'image'
   - 'jquery_ui'
   - 'jquery_ui_accordion'
+  - 'jquery_ui_autocomplete'
+  - 'jquery_ui_menu'
   - 'link'
   - 'link_attributes'
   - 'menu_link_content'
   - 'menu_ui'
   - 'module_filter'
+  - 'mysql'
   - 'node'
   - 'options'
   - 'page_cache'
   - 'path'
   - 'path_alias'
   - 'r4032login'
-  - 'rdf'
   - 'search'
   - 'shortcut'
   - 'smtp'
@@ -66,4 +66,4 @@ install:
 themes:
   - 'bootstrap_barrio'
   - 'euf_bootstrap_sass'
-  - 'adminimal_theme'
+  - 'claro'

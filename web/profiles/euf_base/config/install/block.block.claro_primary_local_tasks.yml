@@ -2,18 +2,18 @@ langcode: en
 status: true
 dependencies:
   theme:
-    - adminimal_theme
-id: adminimal_theme_secondary_local_tasks
-theme: adminimal_theme
-region: pre_content
+    - claro
+id: claro_primary_local_tasks
+theme: claro
+region: header
 weight: 0
 provider: null
 plugin: local_tasks_block
 settings:
   id: local_tasks_block
-  label: 'Secondary tabs'
+  label: 'Primary tabs'
   label_display: '0'
   provider: core
-  primary: false
-  secondary: true
+  primary: true
+  secondary: false
 visibility: {  }

@@ -6,6 +6,7 @@ dependencies:
     - taxonomy.vocabulary.tags
   module:
     - contextual
+    - environment_indicator
     - file
     - node
     - path
@@ -37,3 +38,4 @@ permissions:
   - 'view own unpublished content'
   - 'view page revisions'
   - 'view the administration theme'
+  - 'access environment indicator'

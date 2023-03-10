@@ -4,9 +4,9 @@ dependencies:
   module:
     - system
   theme:
-    - adminimal_theme
-id: adminimal_theme_breadcrumbs
-theme: adminimal_theme
+    - claro
+id: claro_breadcrumbs
+theme: claro
 region: breadcrumb
 weight: 0
 provider: null

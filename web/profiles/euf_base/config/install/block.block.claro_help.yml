@@ -4,9 +4,9 @@ dependencies:
   module:
     - help
   theme:
-    - adminimal_theme
-id: adminimal_theme_help
-theme: adminimal_theme
+    - claro
+id: claro_help
+theme: claro
 region: help
 weight: 0
 provider: null

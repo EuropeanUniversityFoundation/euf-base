@@ -4,7 +4,9 @@ access_denied_message: 'Access denied. You must log in to view this page.'
 access_denied_message_type: error
 redirect_authenticated_users_to: ''
 user_login_path: /user/login
-default_redirect_code: 302
+default_redirect_code: 307
+add_noindex_header: true
 destination_parameter_override: ''
 match_noredirect_pages: ''
+match_noredirect_negate: null
 redirect_to_destination: true
