@@ -1,6 +1,6 @@
 # EUF base profile for Drupal projects
 
-This is a base profile for Drupal 8 projects to be used within the EUF. This template is built upon the [drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project) and [docker4drupal](https://github.com/wodby/docker4drupal) - refer to the respective documentations whenever necessary.
+This is a base profile for Drupal 8/9/10 projects to be used within the EUF. This template is built upon the [drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project) and [docker4drupal](https://github.com/wodby/docker4drupal) - refer to the respective documentations whenever necessary.
 
 ## Quick start with Docker
 
@@ -148,6 +148,10 @@ Use the bundled shell script to perform a quick install from the `.env` variable
 
     chmod u+x scripts/env_install.sh  # ensure the script is executable
     bash scripts/env_install.sh       # run the script using bash (safest)
+
+Environment specific settings are usually placed in a `settings.local.php` file which can be created from the `example.settings.local.php` file from Drupal core, but it is recommended to use the provided version instead:
+
+    cp web/sites/default/custom.settings.local.php web/sites/default/settings.local.php
 
 After a first time installation, change the `settings.php` file to use `settings.local.php` instead:
 
