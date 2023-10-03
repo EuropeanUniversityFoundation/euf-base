@@ -2,7 +2,7 @@ name: UI Tweaks
 type: module
 description: UI tweaks for the EUF base installation profile.
 package: Custom
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^8 || ^9 || ^10
 dependencies:
   - drupal:user
 configure: base_ui_tweaks.settings_form

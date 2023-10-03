@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "044ae726f7b5b188302a89eafda2d8f9",
+    "content-hash": "29eee006ec7e4b8562c0f3375a501def",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1789,27 +1789,27 @@
         },
         {
             "name": "drupal/bootstrap_barrio",
-            "version": "4.33.0",
+            "version": "5.1.10",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/bootstrap_barrio.git",
-                "reference": "8.x-4.33"
+                "reference": "5.1.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/bootstrap_barrio-8.x-4.33.zip",
-                "reference": "8.x-4.33",
-                "shasum": "a8002d713fc1f14e7b98846c65fc5c56239c094c"
+                "url": "https://ftp.drupal.org/files/projects/bootstrap_barrio-5.1.10.zip",
+                "reference": "5.1.10",
+                "shasum": "26222d1519b3e6581c96141750ca9a20ff48e84b"
             },
             "require": {
-                "drupal/core": "^8 || ^9",
+                "drupal/core": "^9.4 || ^10",
                 "twbs/bootstrap": "^4.4.1"
             },
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "8.x-4.33",
-                    "datestamp": "1603660944",
+                    "version": "5.1.10",
+                    "datestamp": "1676931875",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2429,17 +2429,17 @@
         },
         {
             "name": "drupal/environment_indicator",
-            "version": "4.0.15",
+            "version": "4.0.16",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/environment_indicator.git",
-                "reference": "4.0.15"
+                "reference": "4.0.16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/environment_indicator-4.0.15.zip",
-                "reference": "4.0.15",
-                "shasum": "0db0591160af483a3c069aac955bed9e5eced252"
+                "url": "https://ftp.drupal.org/files/projects/environment_indicator-4.0.16.zip",
+                "reference": "4.0.16",
+                "shasum": "73f765f48da9340b31e936af302b01fdf62c644e"
             },
             "require": {
                 "drupal/core": "^9.2 || ^10"
@@ -2447,8 +2447,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.0.15",
-                    "datestamp": "1693578336",
+                    "version": "4.0.16",
+                    "datestamp": "1696345657",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2461,19 +2461,21 @@
             ],
             "authors": [
                 {
-                    "name": "e0ipso",
-                    "homepage": "https://www.drupal.org/user/550110"
+                    "name": "Mateu Aguiló Bosch",
+                    "homepage": "https://www.drupal.org/user/550110",
+                    "email": "mateu@mateuaguilo.com"
                 },
                 {
-                    "name": "isholgueras",
-                    "homepage": "https://www.drupal.org/user/733162"
+                    "name": "Ignacio Sánchez",
+                    "homepage": "https://www.drupal.org/user/733162",
+                    "email": "nacho@isholgueras.com"
                 },
                 {
                     "name": "mrfelton",
                     "homepage": "https://www.drupal.org/user/305669"
                 }
             ],
-            "description": "Adds a color indicator for the different environments.",
+            "description": "Environment Indicator adds some visual cuest to indicate which copy of the site are you interacting with",
             "homepage": "https://www.drupal.org/project/environment_indicator",
             "support": {
                 "source": "https://git.drupalcode.org/project/environment_indicator"
@@ -2481,35 +2483,40 @@
         },
         {
             "name": "drupal/field_defaults",
-            "version": "1.3.0",
+            "version": "2.0.0-alpha2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/field_defaults.git",
-                "reference": "8.x-1.3"
+                "reference": "2.0.0-alpha2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/field_defaults-8.x-1.3.zip",
-                "reference": "8.x-1.3",
-                "shasum": "22a6b0344adc0c25a026cdc1d911e19c48796522"
+                "url": "https://ftp.drupal.org/files/projects/field_defaults-2.0.0-alpha2.zip",
+                "reference": "2.0.0-alpha2",
+                "shasum": "829fa861038991643f32ec4b04da67d659bb38c0"
             },
             "require": {
-                "drupal/core": "^8 || ^9"
+                "drupal/core": "^9.3 || ^10.0"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.3",
-                    "datestamp": "1611268147",
+                    "version": "2.0.0-alpha2",
+                    "datestamp": "1679612171",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9 || ^10 || ^11"
                     }
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -2521,13 +2528,12 @@
             "homepage": "https://www.drupal.org/project/field_defaults",
             "keywords": [
                 "Content",
-                "Content Construction Kit (CCK)",
                 "Drupal",
                 "Fields"
             ],
             "support": {
-                "source": "https://drupal.org/project/field_defaults",
-                "issues": "https://drupal.org/project/issues/field_defaults"
+                "source": "https://git.drupalcode.org/project/field_defaults",
+                "issues": "https://www.drupal.org/project/issues/field_defaults"
             }
         },
         {
@@ -3047,26 +3053,30 @@
         },
         {
             "name": "drupal/link_attributes",
-            "version": "1.14.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/link_attributes.git",
-                "reference": "8.x-1.14"
+                "reference": "2.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/link_attributes-8.x-1.14.zip",
-                "reference": "8.x-1.14",
-                "shasum": "fa4f27ecaed7e6b3c58c0adc679918a9beb7ded5"
+                "url": "https://ftp.drupal.org/files/projects/link_attributes-2.1.0.zip",
+                "reference": "2.1.0",
+                "shasum": "3cac3d09a8351c0ca41a43ee26bba02fac31ef18"
             },
             "require": {
-                "drupal/core": "^9 || ^10"
+                "drupal/core": "^9 || ^10",
+                "php": ">=8.0"
+            },
+            "require-dev": {
+                "drupal/linkit": "6.x-dev"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.14",
-                    "datestamp": "1687393687",
+                    "version": "2.1.0",
+                    "datestamp": "1690356668",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4073,20 +4083,20 @@
         },
         {
             "name": "euf/euf_bootstrap_sass",
-            "version": "1.3",
+            "version": "1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EuropeanUniversityFoundation/euf_bootstrap_sass.git",
-                "reference": "18e8a048eec63ceb72e98ebd855e9e257cd91c1f"
+                "reference": "fce763855d1e5632d1722dc6ae78a647c4ac6308"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EuropeanUniversityFoundation/euf_bootstrap_sass/zipball/18e8a048eec63ceb72e98ebd855e9e257cd91c1f",
-                "reference": "18e8a048eec63ceb72e98ebd855e9e257cd91c1f",
+                "url": "https://api.github.com/repos/EuropeanUniversityFoundation/euf_bootstrap_sass/zipball/fce763855d1e5632d1722dc6ae78a647c4ac6308",
+                "reference": "fce763855d1e5632d1722dc6ae78a647c4ac6308",
                 "shasum": ""
             },
             "require": {
-                "drupal/bootstrap_barrio": "^4.8.0"
+                "drupal/bootstrap_barrio": "^5.1.0"
             },
             "type": "drupal-theme",
             "license": [
@@ -4095,10 +4105,10 @@
             "description": "SASS subtheme for Barrio Theme.",
             "homepage": "https://github.com/EuropeanUniversityFoundation/euf_bootstrap_sass",
             "support": {
-                "source": "https://github.com/EuropeanUniversityFoundation/euf_bootstrap_sass/tree/1.3",
+                "source": "https://github.com/EuropeanUniversityFoundation/euf_bootstrap_sass/tree/1.4",
                 "issues": "https://github.com/EuropeanUniversityFoundation/euf_bootstrap_sass/issues"
             },
-            "time": "2021-02-04T17:00:54+00:00"
+            "time": "2023-10-03T15:17:36+00:00"
         },
         {
             "name": "euf/openid_connect_eufidp",
@@ -14158,6 +14168,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/field_defaults": 15,
         "euf/eu_funding": 10,
         "euf/openid_connect_eufidp": 10,
         "euf/openid_connect_myacademicid": 10,
