@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - eu_funding
+  theme:
+    - seven
+id: seven_eufundingdisclaimer
+theme: seven
+region: header
+weight: 0
+provider: null
+plugin: eu_funding_disclaimer
+settings:
+  id: eu_funding_disclaimer
+  label: 'EU funding disclaimer'
+  label_display: '0'
+  provider: eu_funding
+visibility: {  }

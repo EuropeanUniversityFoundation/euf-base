@@ -4,11 +4,11 @@ dependencies:
   module:
     - help
   theme:
-    - claro
-id: claro_help
-theme: claro
-region: help
-weight: 0
+    - seven
+id: seven_help
+theme: seven
+region: content
+weight: -30
 provider: null
 plugin: help_block
 settings:

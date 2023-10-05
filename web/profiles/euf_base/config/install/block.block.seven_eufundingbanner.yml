@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - eu_funding
+  theme:
+    - seven
+id: seven_eufundingbanner
+theme: seven
+region: header
+weight: 0
+provider: null
+plugin: eu_funding_banner
+settings:
+  id: eu_funding_banner
+  label: 'EU funding banner'
+  label_display: '0'
+  provider: eu_funding
+  high_contrast: 1
+visibility: {  }
